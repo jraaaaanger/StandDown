@@ -1,0 +1,37 @@
+<%= form_for @team do |f| %>
+    <div class="field">
+      <%= f.label :name, class: 'form-text'%>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, "Optional Description (Don't worry, you can change this later)", class: 'form-text'%><br />
+      <%= f.text_field :description, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :organization, class: 'form-text'%><br />
+      <%= collection_select(:team, :organization_id, @orgs, :id, :name, prompt: true) %>
+        </div>
+
+    <div class="field">
+      <%= f.label :city, class: 'form-text'%>
+      <%= f.text_field :city, autofocus: true %>
+      <%= f.label :state, class: 'form-text' %>
+      <%= f.text_field :state, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :country, class: 'form-text'%>
+      <%= f.text_field :country, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :timezone, class: 'form-text'%>
+      <%= f.text_field :timezone, autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Create", class: 'button radius' %>
+    </div>
+  <% end %>

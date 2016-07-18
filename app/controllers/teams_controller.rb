@@ -2,10 +2,12 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
+    @orgs = Organization.all
   end
 
   def create
     @team = Team.new(new_team_params)
+    binding.pry
 
     if @team.save
       redirect_to team_path(@team)
