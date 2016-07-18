@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'user signs In' do
-
   before(:each) do
     visit root_path
     click_link('Sign In')

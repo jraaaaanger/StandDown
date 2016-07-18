@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
       @user.save
       redirect_to team_path(@team)
     else
-      flash[:error] = "Please try again!"
+      flash[:error] = 'Please try again!'
       render :new
     end
   end
@@ -28,7 +28,6 @@ class TeamsController < ApplicationController
 
   def new_team_params
     params.require(:team).permit(:name, :description, :city, :state,
-     :country, :timezone, :organization_id)
+                                 :country, :timezone, :organization_id)
   end
-
 end
