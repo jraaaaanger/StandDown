@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
 
   belongs_to :team
   has_one :organization, through: :team
+
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end

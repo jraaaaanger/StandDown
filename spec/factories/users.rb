@@ -4,6 +4,6 @@ FactoryGirl.define do
     last_name "Hagrid"
     email "keeperofkeys@hogwarts.edu"
     password "FleshEatingSlugRepellant"
-    password_confitmation "FleshEatingSlugRepellant"
+    password_confirmation "FleshEatingSlugRepellant"
   end
 end
