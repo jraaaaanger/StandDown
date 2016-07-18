@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  
-  root "organizations#index"
 
+  root "organizations#index"
   resources :teams
   resources :organizations
 end

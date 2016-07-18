@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for(@user, url: new_user_registration_path(@user)) do |f| %>
+<%= form_for(@user, url: user_registration_path do |f| %>
   <div class= 'form-text'>
     <%= devise_error_messages!%>
   </div>
@@ -21,7 +21,6 @@
 
     <div class="field">
       <%= f.label :description, class: 'form-text'%><br />
-        <p class="form-instructions">Don't worry, you can change this later.</p>
       <%= f.email_field :description, autofocus: true %>
     </div>
 
