@@ -20,6 +20,12 @@
     </div>
 
     <div class="field">
+      <%= f.label :description, class: 'form-text'%><br />
+        <p class="form-instructions">Don't worry, you can change this later.</p>
+      <%= f.email_field :description, autofocus: true %>
+    </div>
+
+    <div class="field">
       <%= f.label :password, class: 'form-text'%>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
