@@ -15,7 +15,6 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(new_organization_params)
-    binding.pry
     @organization.creator = current_user
 
     if @organization.save
@@ -31,5 +30,4 @@ class OrganizationsController < ApplicationController
   def new_organization_params
     params.require(:organization).permit(:name, :description)
   end
-
 end
