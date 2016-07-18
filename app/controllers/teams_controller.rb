@@ -7,9 +7,11 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(new_team_params)
-    binding.pry
 
     if @team.save
+      @user = current_user
+      @user.team = @team
+      @user.save
       redirect_to team_path(@team)
     else
       flash[:error] = "Please try again!"
@@ -25,7 +27,8 @@ class TeamsController < ApplicationController
   protected
 
   def new_team_params
-    params.require(:team).permit(:name, :description, :city, :state, :country, :timezone, :organization_id)
+    params.require(:team).permit(:name, :description, :city, :state,
+     :country, :timezone, :organization_id)
   end
 
 end
