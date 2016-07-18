@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "users#index"
+  root "organizations#index"
 
-  resources :users
+  resources :users, only: [:show, :destroy]
   resources :teams
   resources :organizations
 end

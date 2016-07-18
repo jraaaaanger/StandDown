@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   validates :description, length: { maximum: 140 }
 
   belongs_to :team
+  has_one :organization, through: :team
 end
