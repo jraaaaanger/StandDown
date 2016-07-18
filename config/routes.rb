@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root "organizations#index"
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
 
-  resources :users, only: [:show, :destroy]
+  root 'organizations#index'
   resources :teams
   resources :organizations
 end
