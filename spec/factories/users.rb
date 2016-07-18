@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    first_name "Rubeus"
-    last_name "Hagrid"
-    email "keeperofkeys@hogwarts.edu"
-    password "FleshEatingSlugRepellant"
-    password_confirmation "FleshEatingSlugRepellant"
+    first_name 'Rubeus'
+    last_name 'Hagrid'
+    email 'keeperofkeys@hogwarts.edu'
+    password 'FleshEatingSlugRepellant'
+    password_confirmation 'FleshEatingSlugRepellant'
   end
 end
