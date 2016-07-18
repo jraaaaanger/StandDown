@@ -14,7 +14,8 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.new(params[:id])
+    @organization = Organization.new(new_organization_params)
+    binding.pry
     @organization.creator = current_user
 
     if @organization.save
@@ -23,7 +24,12 @@ class OrganizationsController < ApplicationController
       flash[:alert] = 'Something went wrong. Please try again!'
       render :new
     end
-    
+  end
+
+  protected
+
+  def new_organization_params
+    params.require(:organization).permit(:name, :description)
   end
 
 end
