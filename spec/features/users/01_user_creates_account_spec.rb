@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'user creates an account' do
   context 'as a prospective user' do
+    let!(:organization) { create(:organization) }
+    let!(:team) { create(:team) }
     before(:each) do
       visit root_path
       click_link('Sign Up')
@@ -26,6 +28,7 @@ feature 'user creates an account' do
       fill_in('First Name', with: 'John')
       fill_in('Last Name', with: 'Smith')
       fill_in('Email', with: 'abc@gmail.com')
+      select('Ravenclaw', from: 'user_team_id')
       fill_in('Password', with: 'password')
       fill_in('Password Confirmation', with: 'password')
       click_button('Sign Up')

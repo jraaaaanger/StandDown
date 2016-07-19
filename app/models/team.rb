@@ -11,7 +11,7 @@ class Team < ActiveRecord::Base
   validates :description, length: { maximum: 200 }
 
   def location
-    if state.empty?
+    if state.nil? || state.empty?
       return "#{city}, #{country}"
     else
       return "#{city}, #{state}"
