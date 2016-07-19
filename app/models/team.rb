@@ -1,5 +1,6 @@
 class Team < ActiveRecord::Base
   belongs_to :organization
+  has_many :questions, through: :organization
   has_many :users
 
   validates :name, presence: true
@@ -7,5 +8,4 @@ class Team < ActiveRecord::Base
   validates :country, presence: true
   validates :timezone, presence: true
   validates :description, length: { maximum: 200 }
-
 end
