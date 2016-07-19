@@ -17,6 +17,12 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(new_organization_params)
     @organization.creator = current_user
 
+    @q1 = Question.new(body: "What did you work on yesterday?")
+    @q2 = Question.new(body: "What did you finish yesterday?")
+    @q3 = Question.new(body: "What are you working on today?")
+
+    @organization.questions << [@q1, @q2, @q3]
+
     if @organization.save
       flash[:notice] = @organization.name + ' Added!'
       redirect_to @organization

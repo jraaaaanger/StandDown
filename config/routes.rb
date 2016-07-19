@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   root 'organizations#index'
   resources :teams
   resources :organizations
+
+  resources :questions do
+    resources :answers
+  end
 end
