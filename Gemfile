@@ -23,7 +23,7 @@ gem 'devise'
 gem 'coffee-script'
 
 gem 'foundation-rails'
-gem 'pry-rails'
+gem 'timezone', '~> 1.0'
 
 
 group :development, :test do
@@ -49,3 +49,5 @@ group :production do
 end
 
 ruby '2.2.3'
+gem 'tzinfo'
+gem 'time_difference'

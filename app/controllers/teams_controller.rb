@@ -30,4 +30,9 @@ class TeamsController < ApplicationController
     params.require(:team).permit(:name, :description, :city, :state,
                                  :country, :timezone, :organization_id)
   end
+
+  def relative_time
+    show_time = @team.timezone.utc_offset
+    user_time = current_user.team.timezone.utc_offset
+  end
 end
