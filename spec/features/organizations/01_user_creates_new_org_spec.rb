@@ -10,6 +10,9 @@ feature 'user makes a new organization' do
   end
 
   context 'as an authenticated user' do
+    let!(:team) { create(:team) }
+    let!(:organization) { create(:organization) }
+
     before(:each) do
       user = create(:user)
       login_as user
