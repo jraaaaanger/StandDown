@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  root 'organizations#index'
+  root 'users#index'
   resources :teams
   resources :organizations
 end

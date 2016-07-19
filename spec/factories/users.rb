@@ -4,6 +4,7 @@ FactoryGirl.define do
     first_name 'Rubeus'
     last_name 'Hagrid'
     email
+    team
     password 'FleshEatingSlugRepellant'
     password_confirmation 'FleshEatingSlugRepellant'
   end
