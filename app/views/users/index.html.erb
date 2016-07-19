@@ -1,0 +1,7 @@
+<% if current_user %>
+  <div class="user-stats">
+    <h4 class="user-name"><%= "Hello, #{current_user.fullname}." %></h4>
+    <p><%= "Current Team: #{current_user.team.name}" %></p>
+    <p><%= "Current Location: #{current_user.team.location}" %></p>
+  </div>
+<% end %>
