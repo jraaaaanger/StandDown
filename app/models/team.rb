@@ -18,9 +18,9 @@ class Team < ActiveRecord::Base
     end
   end
 
-  def local_time
+  def local_time(user_time)
     team_offset = Timezone[timezone].utc_offset / 3600
-    user_offset = Timezone[current_user.team.timezone].utc_offset / 3600
+    user_offset = Timezone[user_time].utc_offset / 3600
     difference = team_offset - user_offset
 
     if team_offset == user_offset

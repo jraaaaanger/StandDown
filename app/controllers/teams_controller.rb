@@ -3,7 +3,6 @@ class TeamsController < ApplicationController
   def index
     @organization = Organization.find(params[:organization_id])
     @teams = @organization.teams
-    binding.pry
   end
 
   def new
@@ -28,6 +27,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @organization = @team.organization
     @questions = @team.questions
+    @user_time = current_user.team.timezone
   end
 
   protected
