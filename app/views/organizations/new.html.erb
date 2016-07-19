@@ -6,6 +6,12 @@
     </div>
 
     <div class="field">
+      <%= f.label :start, "Standup Time", class: 'form-text'%>
+      <p class="form-instructions"> This is the time that all users will start their standups in their local timezone. Please enter as a 12-hour format with am or pm, or as 24-hour format.</p>
+      <%= f.text_field :start, autofocus: true %>
+    </div>
+
+    <div class="field">
       <%= f.label :description, "Optional Description", class: 'form-text'%><br />
         <p class="form-instructions">Don't worry, you can change this later.</p>
       <%= f.email_field :description, autofocus: true %>

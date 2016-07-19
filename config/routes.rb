@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   }
 
   root 'users#index'
-  resources :teams
 
   resources :organizations do
     resources :teams, only: [:index, :show]
   end
 
-  resources :questions do
-    resources :answers
+  resources :teams do
+    resources :questions do
+      resources :answers
+    end
   end
 end
