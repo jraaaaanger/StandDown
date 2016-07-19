@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   belongs_to :team
   has_one :organization, through: :team
+  has_many :answers
 
   def fullname
     "#{first_name} #{last_name}"
