@@ -31,6 +31,5 @@ feature 'user sees stats after logging in' do
       expect(page).to have_content(team.name)
       expect(page).to have_content(team.location)
     end
-
   end
 end
