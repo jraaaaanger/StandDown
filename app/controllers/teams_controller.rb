@@ -1,5 +1,10 @@
 class TeamsController < ApplicationController
 
+  def index
+    @organization = Organization.find(params[:organization_id])
+    @teams = @organization.teams
+  end
+
   def new
     @team = Team.new
     @orgs = Organization.all
@@ -21,6 +26,8 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @organization = @team.organization
+    @questions = @team.questions
+    @user_time = current_user.team.timezone
   end
 
   protected

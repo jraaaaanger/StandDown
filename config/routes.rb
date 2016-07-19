@@ -6,5 +6,12 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :teams
-  resources :organizations
+
+  resources :organizations do
+    resources :teams, only: [:index, :show]
+  end
+
+  resources :questions do
+    resources :answers
+  end
 end

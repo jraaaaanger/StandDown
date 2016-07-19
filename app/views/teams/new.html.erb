@@ -28,7 +28,7 @@
 
     <div class="field">
       <%= f.label :timezone, class: 'form-text'%>
-      <%= f.text_field :timezone, autofocus: true %>
+      <%= select(:team, :timezone, Timezone.names) %>
     </div>
 
     <div class="actions">
