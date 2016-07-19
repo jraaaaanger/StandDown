@@ -21,7 +21,7 @@
 
     <div class="field">
       <%= f.label :team, class: 'form-text'%>
-      <%= f.collection_select(:team_id, Team.all, :id, :name) %>
+      <%= f.select :team_id, Team.pluck(:name, :id) %>
     </div>
 
     <div class="field">
