@@ -3,5 +3,6 @@
     <h4 class="user-name"><%= "Hello, #{current_user.fullname}." %></h4>
     <p><%= "Current Team: #{current_user.team.name} | " %><%= link_to "Change", edit_user_registration_path(current_user) %></p>
     <p><%= "Current Location: #{current_user.team.location}" %></p>
+    <%= link_to "All Teams in #{current_user.organization.name}", organization_teams_path(current_user.organization) %>
   </div>
 <% end %>

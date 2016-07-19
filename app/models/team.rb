@@ -17,4 +17,19 @@ class Team < ActiveRecord::Base
       return "#{city}, #{state}"
     end
   end
+
+  def local_time
+    team_offset = Timezone[timezone].utc_offset / 3600
+    user_offset = Timezone[current_user.team.timezone].utc_offset / 3600
+    difference = team_offset - user_offset
+
+    if team_offset == user_offset
+      return "You are in the same timezone as #{name}."
+    elsif difference > 0
+      return "#{name} is #{difference} hours ahead of you."
+    elsif difference < 0
+      return "#{name} is #{difference * -1} hours behind you."
+    end
+
+  end
 end

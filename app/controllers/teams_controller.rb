@@ -1,5 +1,11 @@
 class TeamsController < ApplicationController
 
+  def index
+    @organization = Organization.find(params[:organization_id])
+    @teams = @organization.teams
+    binding.pry
+  end
+
   def new
     @team = Team.new
     @orgs = Organization.all
