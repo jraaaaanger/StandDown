@@ -18,6 +18,7 @@ class OrganizationsController < ApplicationController
     @organization.creator = current_user
 
     if @organization.save
+      flash[:notice] = @organization.name + " Added!" 
       redirect_to @organization
     else
       flash[:alert] = 'Something went wrong. Please try again!'
