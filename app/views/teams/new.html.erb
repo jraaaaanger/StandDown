@@ -1,9 +1,11 @@
 <div class="master-form">
 
+  <h1 class="form-title">Create a Team</h1>
+
 <%= form_for @team do |f| %>
     <div class="field">
       <%= f.label :name, class: 'form-text'%>
-      <p class="form-instructions">Your team name. This is how others in your organize will find you.</p>
+      <p class="form-instructions">Your team name. This is how others in your organization will find you and your teammates.</p>
       <%= f.text_field :name, autofocus: true %>
     </div>
 
@@ -21,6 +23,7 @@
 
     <div class="field">
       <%= f.label :city, class: 'form-text'%>
+      <p class="form-instructions">Or town, hamlet, village, shtetl, or whatever you prefer.</p>
       <%= f.text_field :city, autofocus: true %>
       <%= f.label :state, class: 'form-text' %>
       <p class="form-instructions">If you're in the United States.</p>
@@ -29,11 +32,13 @@
 
     <div class="field">
       <%= f.label :country, class: 'form-text'%>
+      <p class="form-instructions">Required.</p>
       <%= f.text_field :country, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :timezone, class: 'form-text'%>
+      <p class="form-instructions">Your meeting times will be determined by this.</p>
       <%= select(:team, :timezone, ActiveSupport::TimeZone.all.collect { |t| [t, t.tzinfo.name]}) %>
     </div>
 

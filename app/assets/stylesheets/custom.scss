@@ -2,12 +2,22 @@ $bar-color: #5B527F;
 $white: #ffffff;
 $font-color: #343d51;
 $link-hover-color: black;
+$alert-color: #006b9b;
 
 
 @import url(https://fonts.googleapis.com/css?family=Karla|Questrial|Rubik);
 
 body {
   font-family: 'Karla';
+}
+
+.alert {
+  font-family: 'Rubik';
+  background-color: $alert-color;
+  color: $white;
+  margin-top: -20px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
 .top-bar, .sticky {
@@ -53,7 +63,6 @@ body {
 .form-text {
   font-size: 24px;
   color: $font-color;
-
 }
 
 .form-instructions {
