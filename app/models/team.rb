@@ -59,15 +59,13 @@ class Team < ActiveRecord::Base
     end
   end
 
+  def local_start
+    start_time = organization.start.to_s[10...-4]
+    time_zone.now
+    time_zone.parse(start_time)
+  end
+
   def question_time
-    start_h = organization.start.hour
-    start_min = organization.start.min
-    now_h = Time.now.hour
-    now_m = Time.now.min
-    if now_h >= start_h && now_m >= start_min
-      return true
-    else
-      return false
-    end
+
   end
 end
