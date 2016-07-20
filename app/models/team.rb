@@ -35,7 +35,30 @@ class Team < ActiveRecord::Base
   end
 
   def user_difference(user)
-    user.team.utc_difference - utc_difference
+    teamtime = utc_difference
+    usertime = user.team.utc_difference
+    if teamtime < 0 && usertime < 0
+      return usertime - teamtime
+    elsif teamtime > 0 && usertime > 0
+      return usertime - teamtime
+    elsif usertime < 0 && teamtime > 0
+      return (teamtime * -1) + usertime
+    elsif usertime > 0 && teamtime < 0
+      return (usertime * -1) + teamtime
+    elsif usertime == 0
+      return teamtime
+    elsif teamtime == 0
+      return usertime
+    end
+  end
+
+  def time_statement(user)
+    time = user_difference(user) / 3600
+    if time > 0
+      return "#{name} is #{time} hours behind you."
+    else
+      return "#{name} is #{time * -1} hours ahead of you."
+    end
   end
 
   def question_time
