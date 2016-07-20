@@ -12,9 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'coffee-script'
 gem 'foundation-rails'
-gem 'timezone', '~> 1.0'
-gem 'tzinfo'
 gem 'time_difference'
+gem 'activesupport'
 
 group :development, :test do
   gem 'capybara'

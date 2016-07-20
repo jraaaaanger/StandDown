@@ -17,4 +17,9 @@ class User < ActiveRecord::Base
   def fullname
     "#{first_name} #{last_name}"
   end
+
+  def local_time
+    offset = Timezone[team.timezone].utc_offset
+
+  end
 end
