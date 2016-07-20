@@ -28,7 +28,7 @@
 
     <div class="field">
       <%= f.label :timezone, class: 'form-text'%>
-      <%= select(:team, :timezone, Timezone.names) %>
+      <%= select(:team, :timezone, ActiveSupport::TimeZone.all.collect { |t| [t, t.tzinfo.name]}) %>
     </div>
 
     <div class="actions">

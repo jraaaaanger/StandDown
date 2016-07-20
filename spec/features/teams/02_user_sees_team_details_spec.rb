@@ -37,7 +37,7 @@ feature 'user sees ' do
       click_link 'All Teams in Hogwarts'
       click_link 'Ravenclaw | Hogsmeade, Great Britain'
 
-      expect(page).to have_content('Ravenclaw is 4 hours ahead of you.')
+      expect(page).to have_content('Ravenclaw is 5 hours ahead of you.')
     end
 
     scenario 'user sees list of users for a team' do
