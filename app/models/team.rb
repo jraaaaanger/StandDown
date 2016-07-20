@@ -66,6 +66,10 @@ class Team < ActiveRecord::Base
   end
 
   def question_time
-
+    if time_zone.now >= local_start
+      true
+    else
+      false
+    end
   end
 end
