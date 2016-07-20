@@ -1,10 +1,7 @@
 <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
   <div clas="row">
     <div class="small-9 columns sign-nav">
-      <h3 class="logo">STANDDOWN</h3>
-      <% if !current_page?(root_path) %>
-        <%= link_to("StandDown", root_path, class: "sign-links nav-logo user-signs left-side") %>
-      <% end %>
+      <h3 class="logo"><%= link_to "STANDDOWN", root_path %></h3>
       <% if user_signed_in? %>
         <%= link_to("Sign Out", destroy_user_session_path, method: :delete,
           class: "sign-links user-signs") %>

@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<div class="master-form">
+
+<h1 class ="form-title">Sign Up</h1>
+
 
 <%= form_for(@user, url: user_registration_path) do |f| %>
   <div class= 'form-text'>
@@ -6,39 +9,45 @@
   </div>
     <div class="field">
       <%= f.label :first_name, "First Name", class: 'form-text'%>
+      <p class="form-instructions">Harrison, Indiana, Han, etc.</p>
       <%= f.text_field :first_name, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :last_name, "Last Name", class: 'form-text'%>
+      <p class="form-instructions">Ford, Jones, Solo, etc.</p>
       <%= f.text_field :last_name, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :email, class: 'form-text'%>
+      <p class="form-instructions">This is how team members will contact you. Use one you actually check!</p>
       <%= f.email_field :email, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :team, class: 'form-text'%>
+      <p class="form-instructions">The people you work with day-to-day. Your team and organization have to exist before you can join!</p>
       <%= f.select :team_id, Team.pluck(:name, :id) %>
     </div>
 
     <div class="field">
       <%= f.label :description, class: 'form-text'%>
+      <p class="form-instructions">Optional, but recommended. Your focus area, languages you know well, hopes and dreams, etc.</p>
       <%= f.email_field :description, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :password, class: 'form-text'%>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <p class="form-instructions"><%= @minimum_password_length %> characters minimum.</p>
       <% end %>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation, "Password Confirmation", class: 'form-text'%>
+      <p class="form-instructions">Just checking.</p>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
@@ -48,3 +57,5 @@
   <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
