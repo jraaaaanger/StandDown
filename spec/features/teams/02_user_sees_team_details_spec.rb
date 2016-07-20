@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'user sees ' do
   context 'signed-in user' do
     let!(:team) { FactoryGirl.create(:team) }
-    let!(:user) { FactoryGirl.create(:user) }
+    let!(:user) { FactoryGirl.create(:user, team: team) }
     let!(:new_team) { FactoryGirl.create(:team, name: 'Ilvermorny', city: 'New York', state: 'NY',
                                          organization: team.organization, timezone: 'America/New_York') }
     let!(:new_user) { FactoryGirl.create(:user, first_name: 'Newt', last_name: 'Scamander',
@@ -38,6 +38,27 @@ feature 'user sees ' do
       click_link 'Ravenclaw | Hogsmeade, Great Britain'
 
       expect(page).to have_content('Ravenclaw is 4 hours ahead of you.')
+    end
+
+    scenario 'user sees list of users for a team' do
+      login_as new_user
+      visit root_path
+
+      click_link 'All Teams in Hogwarts'
+      click_link 'Ravenclaw | Hogsmeade, Great Britain'
+
+      expect(page).to have_content('Users')
+      expect(page).to have_content('Rubeus Hagrid')
+  end
+
+    scenario 'user does not see themselves on a team user list' do
+      login_as new_user
+      visit root_path
+
+      click_link 'All Teams in Hogwarts'
+      click_link 'Ilvermorny | New York, NY'
+
+      expect(page).to_not have_content('Newt Scamander')
     end
   end
 end

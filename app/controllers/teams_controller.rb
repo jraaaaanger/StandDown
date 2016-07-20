@@ -5,6 +5,14 @@ class TeamsController < ApplicationController
     @teams = @organization.teams
   end
 
+  def show
+    @team = Team.find(params[:id])
+    @organization = @team.organization
+    @users = @team.users
+    @questions = @team.questions
+    @user_time = current_user.team.timezone
+  end
+
   def new
     @team = Team.new
     @orgs = Organization.all
@@ -21,13 +29,6 @@ class TeamsController < ApplicationController
       flash[:error] = 'Please try again!'
       render :new
     end
-  end
-
-  def show
-    @team = Team.find(params[:id])
-    @organization = @team.organization
-    @questions = @team.questions
-    @user_time = current_user.team.timezone
   end
 
   protected
