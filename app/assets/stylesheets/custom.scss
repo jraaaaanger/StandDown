@@ -1,0 +1,31 @@
+$bar-color: #5B527F;
+$white: #ffffff;
+
+@import url(https://fonts.googleapis.com/css?family=Karla|Questrial|Rubik);
+
+body {
+  font-family: 'Karla';
+}
+
+.top-bar, .sticky {
+  background-color: $bar-color;
+}
+
+.top-bar{
+  margin: 0;
+  .sign-links {
+    color: $white;
+    margin: 5px;
+    font-family: 'Questrial';
+  }
+}
+
+.logo {
+  color: $white;
+  font-family: 'Rubik';
+  margin: 0px;
+}
+
+.sign-nav {
+  padding-left: 5px;
+}
