@@ -18,7 +18,7 @@ RSpec.describe Team, type: :model do
 
       expect(team.location).to eq('Sacramento, CA')
       expect(team.location).to_not eq('Sacramento, Great Britain')
-      expect(team.location).to_not eq( 'Sacramento, CA, Great Britain')
+      expect(team.location).to_not eq('Sacramento, CA, Great Britain')
     end
 
     it 'returns the city and country if no state is given' do

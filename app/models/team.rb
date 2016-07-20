@@ -37,9 +37,7 @@ class Team < ActiveRecord::Base
   def user_difference(user)
     teamtime = utc_difference
     usertime = user.team.utc_difference
-    if teamtime < 0 && usertime < 0
-      return usertime - teamtime
-    elsif teamtime > 0 && usertime > 0
+    if (teamtime < 0 && usertime < 0) || (teamtime > 0 && usertime > 0)
       return usertime - teamtime
     elsif usertime < 0 && teamtime > 0
       return (teamtime * -1) + usertime

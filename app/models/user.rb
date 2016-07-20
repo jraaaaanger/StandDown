@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def local_time
-    offset = Timezone[team.timezone].utc_offset
-
+    tz = team.timezone
+    ActiveSupport::TimeZone.[](tz).now
   end
 end
