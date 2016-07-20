@@ -4,15 +4,15 @@
 $font-color: #343d51;
 
 .user-wrapper {
+  margin: auto;
   width: 85%;
   align: center;
-  margin: auto;
 }
 
 .user-stats {
   .user-name {
-    font-family: 'Questrial';
-    margin-bottom: 0px;
+    font-family: "Questrial";
+    margin-bottom: 0;
   }
   p{
     font-size: 18px;
@@ -24,9 +24,9 @@ $font-color: #343d51;
 
 h4 {
   color: $font-color;
-  font-family: 'Questrial';
+  font-family: "Questrial";
   .user-name {
-    margin: 0px;
+    margin: 0;
   }
 }
 

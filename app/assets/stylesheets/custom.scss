@@ -1,35 +1,36 @@
 $bar-color: #5B527F;
 $white: #ffffff;
 $font-color: #343d51;
-$link-hover-color: black;
+$link-hover-color: #000000;
 $alert-color: #006b9b;
 
 
 @import url(https://fonts.googleapis.com/css?family=Karla|Questrial|Rubik);
 
 body {
-  font-family: 'Karla';
+  font-family: "Karla";
 }
 
 .alert {
-  font-family: 'Rubik';
-  background-color: $alert-color;
   color: $white;
   margin-top: -20px;
-  padding: 15px;
   margin-bottom: 20px;
+  padding: 15px;
+  font-family: "Rubik";
+  background-color: $alert-color;
 }
 
-.top-bar, .sticky {
+.top-bar,
+.sticky {
   background-color: $bar-color;
 }
 
-.top-bar{
+.top-bar {
   margin-bottom: 20px;
   .sign-links {
     color: $white;
     margin: 5px;
-    font-family: 'Questrial';
+    font-family: "Questrial";
   }
   a:hover {
     color: $link-hover-color;
@@ -38,8 +39,8 @@ body {
 
 .logo {
   color: $white;
-  font-family: 'Rubik';
-  margin: 0px;
+  font-family: "Rubik";
+  margin: 0;
   a {
     color: $white;
   }
@@ -61,23 +62,23 @@ body {
 }
 
 .form-text {
-  font-size: 24px;
   color: $font-color;
+  font-size: 24px;
 }
 
 .form-instructions {
-  margin: 0px 30px 8px 30px;
   color: $font-color;
+  margin: 0px 30px 8px;
 
 }
 
 .form-title {
+  font-family: "Rubik";
   font-size: 40px;
-  font-family: 'Rubik';
 }
 
 .button {
-  font-size: 16px;
   border-radius: 2px;
+  font-size: 16px;
   margin-top: 16px;
 }
