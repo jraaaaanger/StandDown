@@ -11,8 +11,10 @@ feature 'user sees questions that need to be answered' do
   end
 
   context 'after signing in' do
-    let!(:user) { create(:user) }
-    let!(:question) { create(:question) }
+    let!(:organization) { create(:organization) }
+    let!(:team) { create(:team, organization: organization) }
+    let!(:user) { create(:user, team: team) }
+    let!(:question) { create(:question, organization: organization) }
 
     before(:each) do
       login_as user
