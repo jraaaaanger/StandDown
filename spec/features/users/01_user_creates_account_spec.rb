@@ -46,7 +46,7 @@ feature 'user creates an account' do
 
       click_button('Sign Up')
 
-      expect(page).to have_content('Sign up')
+      expect(page).to have_content('Sign Up')
       expect(page).to have_content('Email is invalid')
     end
   end

@@ -34,7 +34,7 @@ feature 'user makes a new organization' do
       click_link 'New Organization'
       fill_in 'Name', with: 'Ministry of Magic'
       fill_in 'Standup Time', with: '10:00 am'
-      fill_in 'Optional Description', with: 'Magic is Might'
+      fill_in 'Description', with: 'Magic is Might'
       click_button 'Create'
 
       expect(page).to have_content 'Ministry of Magic'
@@ -43,7 +43,7 @@ feature 'user makes a new organization' do
 
     scenario 'submits new organization form incorrectly' do
       click_link 'New Organization'
-      fill_in 'Optional Description', with: 'Cornelius Fudge, Minister of Magic'
+      fill_in 'Description', with: 'Cornelius Fudge, Minister of Magic'
       fill_in 'Standup Time', with: '10'
       click_button 'Create'
 
