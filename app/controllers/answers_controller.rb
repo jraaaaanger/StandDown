@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-
   def new
     @answer = Answer.new
     @question = Question.find(params[:question_id])
@@ -11,9 +10,9 @@ class AnswersController < ApplicationController
     @answer.user = @user
 
     if @answer.save
-      redirect_to root_path, notice: "Question answered!"
+      redirect_to root_path, notice: 'Question answered!'
     else
-      flash[:alert] = "Not answered successfully, please try again."
+      flash[:alert] = 'Not answered successfully, please try again.'
       render :new
     end
   end
@@ -23,5 +22,4 @@ class AnswersController < ApplicationController
   def new_answer_params
     params.require(:answer).permit(:body)
   end
-
 end

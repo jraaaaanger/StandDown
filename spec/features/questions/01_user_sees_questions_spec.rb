@@ -22,7 +22,7 @@ feature 'user sees questions that need to be answered' do
     end
 
     scenario 'user sees questions on the root path' do
-        expect(page).to have_content(question.body)
+      expect(page).to have_content(question.body)
     end
 
     scenario 'user clicks on question to answer it' do
