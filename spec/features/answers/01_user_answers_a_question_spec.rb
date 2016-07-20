@@ -27,14 +27,14 @@ feature 'user can answer a question' do
       expect(page).to have_current_path(root_path)
     end
 
-    scenario 'question no longer appears after it is answered' do
-      click_link question.body
-
-      fill_in 'Response', with: 'They are the same plant, which also goes by the name aconite.'
-      click_button 'Submit'
-
-      expect(page).to_not have_content question.body
-    end
+    # scenario 'question no longer appears after it is answered' do
+    #   click_link question.body
+    #
+    #   fill_in 'Response', with: 'They are the same plant, which also goes by the name aconite.'
+    #   click_button 'Submit'
+    #
+    #   expect(page).to_not have_content question.body
+    # end
 
   end
 end
