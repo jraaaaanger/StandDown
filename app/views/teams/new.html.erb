@@ -1,33 +1,44 @@
+<div class="master-form">
+
+  <h1 class="form-title">Create a Team</h1>
+
 <%= form_for @team do |f| %>
     <div class="field">
       <%= f.label :name, class: 'form-text'%>
+      <p class="form-instructions">Your team name. This is how others in your organization will find you and your teammates.</p>
       <%= f.text_field :name, autofocus: true %>
     </div>
 
     <div class="field">
-      <%= f.label :description, "Optional Description (Don't worry, you can change this later)", class: 'form-text'%><br />
+      <%= f.label :description, "Optional Description", class: 'form-text'%>
+      <p class="form-instructions"> A little blurb about what your team focuses on. Don't worry, you can change this later.</p>
       <%= f.text_field :description, autofocus: true %>
     </div>
 
     <div class="field">
-      <%= f.label :organization, class: 'form-text'%><br />
+      <%= f.label :organization, class: 'form-text'%>
+      <p class="form-instructions">If your organization doesn't exist, yet, you'll have to <%= link_to 'create it!', new_organization_path %></p>
       <%= collection_select(:team, :organization_id, @orgs, :id, :name, prompt: true) %>
         </div>
 
     <div class="field">
       <%= f.label :city, class: 'form-text'%>
+      <p class="form-instructions">Or town, hamlet, village, shtetl, or whatever you prefer.</p>
       <%= f.text_field :city, autofocus: true %>
       <%= f.label :state, class: 'form-text' %>
+      <p class="form-instructions">If you're in the United States.</p>
       <%= f.text_field :state, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :country, class: 'form-text'%>
+      <p class="form-instructions">Required.</p>
       <%= f.text_field :country, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :timezone, class: 'form-text'%>
+      <p class="form-instructions">Your meeting times will be determined by this.</p>
       <%= select(:team, :timezone, ActiveSupport::TimeZone.all.collect { |t| [t, t.tzinfo.name]}) %>
     </div>
 
@@ -35,3 +46,4 @@
       <%= f.submit "Create", class: 'button radius' %>
     </div>
   <% end %>
+</div>

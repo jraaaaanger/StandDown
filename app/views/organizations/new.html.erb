@@ -1,19 +1,23 @@
-<h1>Create an Organization</h1>
+<div class="master-form">
+
+<h1 class ="form-title">Create an Organization</h1>
+
 <%= form_for @organization do |f| %>
     <div class="field">
       <%= f.label :name, class: 'form-text'%>
+      <p class="form-instructions">Your company or organization name.</p>
       <%= f.text_field :name, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :start, "Standup Time", class: 'form-text'%>
-      <p class="form-instructions"> This is the time that all users will start their standups in their local timezone. Please enter as a 12-hour format with am or pm, or as 24-hour format.</p>
+      <p class="form-instructions"> This is when all users in your organization will start. Please enter as 12-hour with am/pm (i.e. 9:00 am), or as 24-hour time without it (i.e. 14:00).</p>
       <%= f.text_field :start, autofocus: true %>
     </div>
 
     <div class="field">
-      <%= f.label :description, "Optional Description", class: 'form-text'%><br />
-        <p class="form-instructions">Don't worry, you can change this later.</p>
+      <%= f.label :description, "Description", class: 'form-text'%>
+        <p class="form-instructions">Completely optional. Don't worry, you can change this later.</p>
       <%= f.email_field :description, autofocus: true %>
     </div>
 
@@ -21,3 +25,5 @@
       <%= f.submit "Create", class: 'button radius' %>
     </div>
   <% end %>
+
+</div>
