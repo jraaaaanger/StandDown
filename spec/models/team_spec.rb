@@ -11,4 +11,20 @@ RSpec.describe Team, type: :model do
 
   it { should have_valid(:country).when('Scotland', 'Great Britain') }
   it { should_not have_valid(:country).when(nil, '') }
+
+  describe '#location' do
+    it 'returns the city and state if state is given' do
+      team = create(:team, city: 'Sacramento', state: 'CA')
+
+      expect(team.location).to eq('Sacramento, CA')
+      expect(team.location).to_not eq('Sacramento, Great Britain')
+      expect(team.location).to_not eq( 'Sacramento, CA, Great Britain')
+    end
+
+    it 'returns the city and country if no state is given' do
+      team = create(:team)
+
+      expect(team.location).to eq('Hogsmeade, Great Britain')
+    end
+  end
 end
