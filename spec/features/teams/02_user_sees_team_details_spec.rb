@@ -49,7 +49,7 @@ feature 'user sees ' do
 
       expect(page).to have_content('Users')
       expect(page).to have_content('Rubeus Hagrid')
-  end
+    end
 
     scenario 'user does not see themselves on a team user list' do
       login_as new_user
