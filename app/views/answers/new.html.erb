@@ -1,0 +1,7 @@
+<h3><%= @question.body %></h3>
+
+<%= form_for [@question, @answer], url: question_answers_path(@question, @answer) do |f|  %>
+  <%= f.label :body, 'Response', class: 'form-text' %>
+  <%= f.text_field :body, class: 'answer-form-field' %>
+  <%= f.submit "Submit" %>
+<% end %>

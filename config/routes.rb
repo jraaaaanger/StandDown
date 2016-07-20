@@ -10,9 +10,13 @@ Rails.application.routes.draw do
     resources :teams, only: [:index, :show]
   end
 
+  resources :answers
+
+  resources :questions do
+    resources :answers
+  end
+
   resources :teams do
-    resources :questions do
-      resources :answers
-    end
+    resources :questions
   end
 end

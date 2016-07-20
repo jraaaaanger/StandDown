@@ -5,4 +5,11 @@
     <p><%= "Current Location: #{current_user.team.location}" %></p>
     <%= link_to "All Teams in #{current_user.organization.name}", organization_teams_path(current_user.organization) %>
   </div>
+
+  <div class="user-questions">
+    <h4 class="subtitle">Questions</h4>
+    <% current_user.team.questions.each do |q| %>
+      <h5 class="question"><%= link_to q.body, new_question_answer_path(q) %></h5>
+    <% end %>
+  </div>
 <% end %>
