@@ -30,4 +30,16 @@ class Team < ActiveRecord::Base
       return "#{name} is #{difference * -1} hours behind you."
     end
   end
+
+  def question_time
+    start_h = organization.start.hour
+    start_min = organization.start.min
+    now_h = Time.now.hour
+    now_m = Time.now.min
+    if now_h >= start_h && now_m >= start_min
+      return true
+    else
+      return false
+    end
+  end
 end
