@@ -10,19 +10,21 @@
       <h4 class="subtitle">Questions</h4>
       <% current_user.team.questions.each do |q| %>
         <h5 class="question" onclick="formOpen()" ><%= link_to q.body, new_question_answer_path(q), id: q.id %></h5>
-
+        <form>
         <div class="row" style="display: none" id=<%="answer-#{q.id}"%> >
-              <div class="row collapse">
-                <div class="small-10 columns">
-                  <input type="text" placeholder="Your Response!" id=<%="#{q.id}-value"%> >
-                </div>
-                <div class="small-2 columns">
-                  <a onClick="questionSubmit()" class="button postfix question-button" id= <%= "#{q.id}-#{current_user.id}" %> >Go</a>
-                </div>
+          <div class="row collapse">
+              <div class="small-10 columns">
+                <input type="text" placeholder="Your Response!" id=<%="#{q.id}-value"%> >
+              </div>
+              <div class="small-2 columns">
+                <a onClick="questionSubmit()" class="button postfix" id=<%="#{q.id}-#{current_user.id}"%> >Go</a>
               </div>
           </div>
+        </div>
+      </form>
 
-      <% end %>
+    <% end %>
     </div>
+
   <% end %>
 </div>
