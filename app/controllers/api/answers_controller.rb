@@ -1,28 +1,25 @@
 class Api::AnswersController < ApiController
+  protect_from_forgery with: :null_session
+
   def index
     @answers = Answer.find(params[:answer_id])
     render json: @answer
   end
 
   def new
-    binding.pry
     @answer = Answer.new
   end
 
   def create
-    @question = Question.find(params[:question_id])
     answer = Answer.new(new_answer_params)
-    answer.question = @question
-    binding.pry
     if answer.save
-      render json: :nothing, status: :created, location: api_question_answers(answer)
+      render json: :nothing, status: :created, location: api_question_answers_path(answer)
     else
       render json: :nothing, status: :not_found
     end
   end
 
   def index
-    binding.pry
     @answers = Question.find(params[:question_id]).answers
     render json: @answers
   end
@@ -30,6 +27,6 @@ class Api::AnswersController < ApiController
   protected
 
   def new_answer_params
-    params.permit(:answer).require(:user_id, :body)
+    params.require(:answer).permit(:body, :question_id, :user_id)
   end
 end
