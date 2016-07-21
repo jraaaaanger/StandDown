@@ -1,4 +1,4 @@
-class Api::QuestionsController < ApplicationController
+class Api::QuestionsController < ApiController
   def index
     @team = Team.find(params[:team_id])
     @questions = @team.questions

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :teams do
-      resources :questions, only: [:index]
+      resources :questions, only: [:index] do
+        resources :answers, only: [:index, :show]
+      end
     end
     resources :questions do
       resources :answers
