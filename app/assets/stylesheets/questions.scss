@@ -1,7 +1,7 @@
 $font-color: #343d51;
 
 .postfix {
-  margin: 0px !important;
+  margin: 0 !important;
 }
 
 .question-form {
@@ -10,7 +10,7 @@ $font-color: #343d51;
 }
 
 .question {
-    a {
-      color: $font-color;
-    }
+  a {
+    color: $font-color;
+  }
 }
