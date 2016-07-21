@@ -1,0 +1,10 @@
+$answer-color: #9d96bb;
+
+.new-answer {
+  margin-left: 24px;
+  h5 {
+    font-size: 16px;
+    font-style: italic;
+    color: $answer-color;
+  }
+}

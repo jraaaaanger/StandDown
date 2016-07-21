@@ -4,7 +4,6 @@ function questionSubmit() {
   var variables = event.target.id.split("-");
   var userId = variables[1];
   var questionId = variables[0];
-  console.log(userId);
 
   answerBody = $("#" + questionId + "-value").val();
 
@@ -22,5 +21,10 @@ function questionSubmit() {
   response.done(function() {
     var newClass = "#answer-" + questionId;
     $(newClass).toggle("fast");
+    var $answerDiv = $("#response-" + questionId);
+    var $newContent = "<h5>"+ answerBody + "</h5>";
+    $answerDiv.append($newContent);
+    $answerDiv.toggle();
+    $(newClass).remove();
   });
 }

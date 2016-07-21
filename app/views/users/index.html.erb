@@ -11,13 +11,14 @@
           <div class="question-form user-questions" style="display: none" id=<%="answer-#{q.id}"%> >
             <div class="row collapse">
                 <div class="small-10 columns">
-                  <input type="text" placeholder="200 Characters Max" id=<%="#{q.id}-value"%> >
+                  <input type="text" required placeholder="200 Characters Max" id=<%="#{q.id}-value"%> >
                 </div>
                 <div class="small-2 columns postfix">
                   <a onClick="questionSubmit()" class="button postfix" id=<%="#{q.id}-#{current_user.id}"%> >Answer</a>
                 </div>
             </div>
           </div>
+          <div class="new-answer" style="display:none" id= <%="response-#{q.id}"%> ></div>
       <% end %>
   <% end %>
 </div>
