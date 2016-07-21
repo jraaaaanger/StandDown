@@ -1,11 +1,6 @@
 class Api::AnswersController < ApiController
   protect_from_forgery with: :null_session
 
-  def index
-    @answers = Answer.find(params[:answer_id])
-    render json: @answer
-  end
-
   def new
     @answer = Answer.new
   end
