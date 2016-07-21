@@ -7,6 +7,9 @@
   <h4><%= "Your current team | " %><%= link_to "Change?", edit_user_registration_path(current_user) %></h4>
 <% end %>
 
+<%= link_to "New Team", new_team_path %>
+
+
 <h4 class='team-section'>Users</h4>
 <ul>
 <% @users.each do |u| %>
