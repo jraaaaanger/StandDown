@@ -5,7 +5,7 @@ feature 'user makes a new organization' do
     scenario 'visits home page and does not see new org button' do
       visit root_path
 
-      expect(page).to_not have_content('New Organization')
+      expect(page).to_not have_link('New Organization')
     end
   end
 
@@ -20,10 +20,11 @@ feature 'user makes a new organization' do
     end
 
     scenario 'visits home page and sees new org button' do
-      expect(page).to have_content('New Organization')
+      expect(page).to have_link(organization.name)
     end
 
     scenario 'user clicks new organization and sees a form' do
+      click_link organization.name
       click_link 'New Organization'
 
       expect(page).to have_content('Create an Organization')
@@ -31,6 +32,7 @@ feature 'user makes a new organization' do
     end
 
     scenario 'submits new organization form correctly' do
+      click_link organization.name
       click_link 'New Organization'
       fill_in 'Name', with: 'Ministry of Magic'
       fill_in 'Standup Time', with: '10:00 am'
@@ -42,6 +44,7 @@ feature 'user makes a new organization' do
     end
 
     scenario 'submits new organization form incorrectly' do
+      click_link organization.name
       click_link 'New Organization'
       fill_in 'Description', with: 'Cornelius Fudge, Minister of Magic'
       fill_in 'Standup Time', with: '10'

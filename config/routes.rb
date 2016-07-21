@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   root 'users#index'
 
   namespace :api do
+    resources :users do
+      resources :questions, only: [:show] do
+        resources :answers
+      end
+    end
     resources :teams do
       resources :questions, only: [:index] do
         resources :answers, only: [:index, :show]

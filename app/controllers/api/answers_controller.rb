@@ -7,6 +7,7 @@ class Api::AnswersController < ApiController
 
   def create
     answer = Answer.new(new_answer_params)
+    answer.question = Question.find(params[:question_id])
     if answer.save
       render json: :nothing, status: :created, location: api_question_answers_path(answer)
     else
@@ -15,8 +16,11 @@ class Api::AnswersController < ApiController
   end
 
   def index
-    @answers = Question.find(params[:question_id]).answers
-    render json: @answers
+    @user = User.find(params[:user_id])
+    answers = @user.answers
+    most_recent_answer = answers.last
+
+    render json: most_recent_answer
   end
 
   protected
