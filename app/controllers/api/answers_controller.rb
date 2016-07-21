@@ -7,6 +7,7 @@ class Api::AnswersController < ApiController
 
   def create
     answer = Answer.new(new_answer_params)
+    answer.question = Question.find(params[:question_id])
     if answer.save
       render json: :nothing, status: :created, location: api_question_answers_path(answer)
     else

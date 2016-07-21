@@ -17,7 +17,7 @@
                   <input type="text" placeholder="Your Response!" id=<%="#{q.id}-value"%> >
                 </div>
                 <div class="small-2 columns">
-                  <a onClick="questionSubmit()" class="button postfix question-button" id= <%= "#{q.id} #{current_user.id}" %> >Go</a>
+                  <a onClick="questionSubmit()" class="button postfix question-button" id= <%= "#{q.id}-#{current_user.id}" %> >Go</a>
                 </div>
               </div>
           </div>
