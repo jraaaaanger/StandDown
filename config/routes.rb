@@ -6,6 +6,15 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  namespace :api do
+    resources :teams do
+      resources :questions, only: [:index]
+    end
+    resources :questions do
+      resources :answers
+    end
+  end
+
   resources :organizations do
     resources :teams, only: [:index, :show]
   end
