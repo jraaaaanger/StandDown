@@ -5,9 +5,11 @@ class AnswersController < ApplicationController
   end
 
   def create
+    @question = Question.find(params[:question_id])
     @answer = Answer.new(new_answer_params)
     @user = current_user
     @answer.user = @user
+    @answer.question = @question
 
     if @answer.save
       redirect_to root_path, notice: 'Question answered!'
