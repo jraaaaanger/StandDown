@@ -2,7 +2,6 @@
   <% if current_user %>
     <div class="user-stats">
       <h4 class="user-name"><%= "Hello, #{current_user.fullname}." %></h4>
-      <p><%= "Current Team: #{current_user.team.name} | " %><%= link_to "Change", edit_user_registration_path(current_user) %></p>
       <p><%= "Current Location: #{current_user.team.location}" %></p>
       <p><%= link_to "All Teams in #{current_user.organization.name}", organization_teams_path(current_user.organization) %></p>
     </div>
@@ -10,7 +9,19 @@
     <div class="user-questions">
       <h4 class="subtitle">Questions</h4>
       <% current_user.team.questions.each do |q| %>
-        <h5 class="question"><%= link_to q.body, new_question_answer_path(q) %></h5>
+        <h5 class="question" onclick="formOpen()" ><%= link_to q.body, new_question_answer_path(q), id: q.id %></h5>
+
+        <div class="row" style="display: none" id=<%="answer-#{q.id}"%> >
+              <div class="row collapse">
+                <div class="small-10 columns">
+                  <input type="text" placeholder="Your Response!" id=<%="#{q.id}-value"%> >
+                </div>
+                <div class="small-2 columns">
+                  <a onClick="questionSubmit()" class="button postfix question-button" id= <%= "#{q.id} #{current_user.id}" %> >Go</a>
+                </div>
+              </div>
+          </div>
+
       <% end %>
     </div>
   <% end %>

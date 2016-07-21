@@ -13,12 +13,13 @@ feature 'user sees stats after logging in' do
 
     scenario 'visits home and sees user data' do
       expect(page).to have_content('Hello, Rubeus Hagrid.')
-      expect(page).to have_content('Current Team: Ravenclaw')
+      expect(page).to have_content('Ravenclaw')
       expect(page).to have_content('Current Location: Hogsmeade, Great Britain')
     end
 
     scenario 'sees link to change current team' do
-      expect(page).to have_link('Change')
+      expect(page).to have_link('Ravenclaw')
+      click_link 'Ravenclaw'
       click_link 'Change'
 
       expect(page).to have_css('form')

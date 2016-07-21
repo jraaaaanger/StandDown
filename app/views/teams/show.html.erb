@@ -1,5 +1,11 @@
-<h1><%= @team.name %></h1>
-<h3><%= @team.time_statement(current_user) %></h3>
+<div class="team-wrapper">
+
+<h1 class="team-name"><%= @team.name %></h1>
+<% if current_user.team != @team %>
+  <h3><%= @team.time_statement(current_user) %></h3>
+<% else %>
+  <h4><%= "Your current team | " %><%= link_to "Change?", edit_user_registration_path(current_user) %></h4>
+<% end %>
 
 <h4 class='team-section'>Users</h4>
 <ul>
@@ -9,3 +15,5 @@
   <% end %>
 <% end %>
 </ul>
+
+</div>
