@@ -59,7 +59,7 @@ feature 'user sees home page' do
       allow(Time).to receive(:now).and_return(@time_now)
 
       click_link(question.body)
-      fill_in('answer', with: "They are the same plant which is also known as aconite.")
+      fill_in('answer', with: 'They are the same plant which is also known as aconite.')
       click_link 'Answer'
 
       expect(page).to_not have_css('input')
