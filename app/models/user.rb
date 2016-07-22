@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
 
   def all_answered_today?
     organization.questions.each do |q|
-      if !answered_today?(q.id)
+      unless answered_today?(q.id)
         return false
       end
     end
