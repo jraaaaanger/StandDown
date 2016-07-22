@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'user sees home page' do
-
   context 'before signing in' do
     scenario 'visits home and sees offline content' do
       visit root_path
@@ -31,7 +30,7 @@ feature 'user sees home page' do
       @time_now = Time.new(2016, 10, 31, 10, 0, 0).utc
       allow(Time).to receive(:now).and_return(@time_now)
 
-      expect(page).to have_content("Standup")
+      expect(page).to have_content('Standup')
       expect(page).to have_content(question.body)
     end
 
@@ -49,10 +48,10 @@ feature 'user sees home page' do
       allow(Time).to receive(:now).and_return(@time_now)
 
       click_link(question.body)
-      fill_in('answer', with: "They are the same plant which is also known as aconite.")
+      fill_in('answer', with: 'They are the same plant which is also known as aconite.')
       click_link 'Answer'
 
-      expect(page).to have_content "They are the same plant which is also known as aconite."
+      expect(page).to have_content 'They are the same plant which is also known as aconite.'
     end
 
     scenario 'expects not to see question form after answering question', js: true do
@@ -67,7 +66,7 @@ feature 'user sees home page' do
 
       visit root_path
 
-      expect(page).to have_content "Your next standup is"
+      expect(page).to have_content 'Your next standup is'
     end
   end
 end
