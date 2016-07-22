@@ -11,5 +11,12 @@ class Organization < ActiveRecord::Base
   validates :description, length: { maximum: 200 }
 
   def start_time
+    if start.strftime("%p") == "AM"
+      clarifier = " this morning."
+    elsif start_time("%p") == "PM"
+      clarifier = " this afternoon."
+    end
+
+    return "Your next standup is at " + start.strftime("%I:%M") + clarifier
   end
 end
