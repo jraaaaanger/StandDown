@@ -1,3 +1,5 @@
+<h4 class="team-section">Recent Activity</h4>
+
 <% @last_answers.each do |a| %>
 <div class="user-response">
   <div class="left-section">
@@ -5,8 +7,8 @@
     <%= a.submitter_time + " there | " + a.viewer_time(current_user.local_zone) +" here" %>
   </div>
   <div class="right-section">
-    <%= a.question.body %>
-    <%= a.body %>
+    <span class="team-question"><%= a.question.body %></span>
+    <span class="team-answer"><%= a.body %></span>
   </div>
 </div>
 <% end %>

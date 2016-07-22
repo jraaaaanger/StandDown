@@ -1,4 +1,4 @@
-$bar-color: #5B527F;
+$bar-color: #5b527f;
 $white: #ffffff;
 $font-color: #343d51;
 $link-hover-color: #3a3451;
@@ -9,6 +9,11 @@ $alert-color: #006b9b;
 
 body {
   font-family: "Karla";
+  color: $font-color;
+}
+
+a {
+  color: $bar-color;
 }
 
 .alert {

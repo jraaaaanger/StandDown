@@ -1,9 +1,19 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$font-color: #343d51;
 
 .team-name {
   font-family: "Questrial";
+}
+
+.team-question {
+  color: $font-color;
+}
+
+.team-answer {
+  font-style: italic;
+  color: $font-color;
 }
 
 .team-wrapper {
