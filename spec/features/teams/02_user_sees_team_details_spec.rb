@@ -40,7 +40,7 @@ feature 'user sees ' do
       expect(page).to have_content('Ravenclaw is 5 hours ahead of you.')
     end
 
-    scenario 'user sees list of users for a team' do
+    scenario 'user sees option to view users of a team', js: true do
       login_as new_user
       visit root_path
 
@@ -48,15 +48,26 @@ feature 'user sees ' do
       click_link 'Ravenclaw | Hogsmeade, Great Britain'
 
       expect(page).to have_content('Users')
+    end
+
+    scenario 'user sees users after clicking users', js: true do
+      login_as new_user
+      visit root_path
+
+      click_link 'All Teams in Hogwarts'
+      click_link 'Ravenclaw | Hogsmeade, Great Britain'
+      click_link 'Users'
+
       expect(page).to have_content('Rubeus Hagrid')
     end
 
-    scenario 'user does not see themselves on a team user list' do
+    scenario 'user does not see themselves on a team user list', js: true do
       login_as new_user
       visit root_path
 
       click_link 'All Teams in Hogwarts'
       click_link 'Ilvermorny | New York, NY'
+      click_link 'Users'
 
       expect(page).to_not have_content('Newt Scamander')
     end
