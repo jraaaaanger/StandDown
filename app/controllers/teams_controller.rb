@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
     @organization = @team.organization
     @users = @team.users
     @questions = @team.questions
+    @last_answers = @team.answers.last(10)
     @user_time = current_user.team.timezone
   end
 
