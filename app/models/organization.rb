@@ -9,14 +9,4 @@ class Organization < ActiveRecord::Base
   validates :start, presence: true
   validates_format_of :start, with: /([01]?[0-9]|2[0-3])\:[0-5][0-9]/
   validates :description, length: { maximum: 200 }
-
-  def start_time
-    if start.strftime("%p") == "AM"
-      clarifier = " this morning."
-    elsif start_time("%p") == "PM"
-      clarifier = " this afternoon."
-    end
-
-    return "Your next standup is at " + start.strftime("%I:%M") + clarifier
-  end
 end

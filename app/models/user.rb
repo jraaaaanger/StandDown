@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def no_standup_message
+    if all_answered_today?
+      "Your next standup is tomorrow at " + organization.start.strftime("%H:%M %p") + "."
+    else
+      "Your next standup is today at " + organization.start.strftime("%H:%M %p") + "."
+    end
+  end
+
   def local_time
     team.time_zone.now
   end
@@ -59,6 +67,16 @@ class User < ActiveRecord::Base
       end
     end
     return false
+  end
+
+  def all_answered_today?
+    organization.questions.each do |q|
+      if !answered_today?(q.id)
+        return false
+        break
+      end
+    end
+    return true
   end
 
 end

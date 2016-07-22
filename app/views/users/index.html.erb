@@ -7,10 +7,10 @@
       <p><%= link_to "All Teams in #{current_user.organization.name}", organization_teams_path(current_user.organization) %></p>
     </div>
 
-     <% if current_user.question_time? %>
+     <% if current_user.question_time? && !current_user.all_answered_today? %>
       <%= render 'question' %>
     <% else %>
-      <%= user.organization.start_time %>
+      <%= current_user.no_standup_message %>
     <% end %>
 
   <% end %>
