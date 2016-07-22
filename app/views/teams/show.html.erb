@@ -4,19 +4,22 @@
 <% if current_user.team != @team %>
   <h3><%= @team.time_statement(current_user) %></h3>
 <% else %>
-  <h4><%= "Your current team | " %><%= link_to "Change?", edit_user_registration_path(current_user) %></h4>
+  <h4><%= "Your current team | " %><%= link_to "Change", edit_user_registration_path(current_user) %></h4>
 <% end %>
+
+<div class="team-selectors">
+  <a onclick="showRA()" id="recent-activity-select">Recent Activity</a>
+  <a onclick="showUsers()" id="user-select">Users</a>
+</div><br />
+
+<div class="recent-activity" id="recent-activity">
+  <%= render "recent_activity" %>
+</div>
+
+<div style="display:none" id="users">
+  <%= render "users" %>
+</div>
 
 <%= link_to "New Team", new_team_path %>
-
-
-<h4 class='team-section'>Users</h4>
-<ul>
-<% @users.each do |u| %>
-  <% unless u == current_user %>
-    <li><%= u.fullname %></li>
-  <% end %>
-<% end %>
-</ul>
 
 </div>

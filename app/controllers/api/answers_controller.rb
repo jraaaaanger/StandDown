@@ -15,6 +15,9 @@ class Api::AnswersController < ApiController
     end
   end
 
+  def show
+  end
+
   def index
     @user = User.find(params[:user_id])
     answers = @user.answers
