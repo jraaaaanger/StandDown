@@ -73,10 +73,9 @@ class User < ActiveRecord::Base
     organization.questions.each do |q|
       if !answered_today?(q.id)
         return false
-        break
       end
     end
-    return true
+    true
   end
 
 end
