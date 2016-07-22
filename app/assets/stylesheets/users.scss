@@ -9,6 +9,11 @@ $font-color: #343d51;
   align: center;
 }
 
+.intro-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .user-stats {
   .user-name {
     font-family: "Questrial";
@@ -25,11 +30,9 @@ $font-color: #343d51;
 .intro-header {
   color: $font-color;
   font-family: "Rubik";
-  margin: 10 0;
 }
 
 .intro-body {
-  margin-left: 20px;
   color: $font-color;
   font-family: "Questrial";
 }
