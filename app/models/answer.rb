@@ -6,4 +6,28 @@ class Answer < ActiveRecord::Base
 
   validates :body, presence: true
   validates :body, length: { maximum: 200 }
+
+  def year
+    updated_at.strftime("%Y")
+  end
+
+  def month
+    updated_at.strftime("%m")
+  end
+
+  def date
+    updated_at.strftime("%C")
+  end
+
+  def year_local(timezone)
+    updated_at.in_time_zone(timezone).strftime("%Y")
+  end
+
+  def month_local(timezone)
+    updated_at.in_time_zone(timezone).strftime("%m")
+  end
+
+  def date_local(timezone)
+    updated_at.in_time_zone(timezone).strftime("%C")
+  end
 end

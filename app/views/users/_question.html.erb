@@ -1,0 +1,26 @@
+<h4 class="subtitle">Standup</h4>
+<% current_user.team.questions.each do |q| %>
+
+  <% if current_user.answered_today?(q.id) %>
+
+  <h5 class="question"><%= link_to q.body, new_question_answer_path(q), id: q.id %></h5>
+  <div class="new-answer" id= <%="response-#{q.id}"%> >
+    <h5><%= Answer.where(user: current_user, question: q).last.body %></h5>
+  </div>
+
+  <% else %>
+    <h5 class="question" onclick="formOpen()" ><%= link_to q.body, new_question_answer_path(q), id: q.id %></h5>
+      <div class="question-form user-questions" style="display: none" id=<%="answer-#{q.id}"%> >
+        <div class="row collapse">
+            <div class="small-10 columns">
+              <input type="text" required placeholder="200 Characters Max" id=<%="#{q.id}-value"%> >
+            </div>
+            <div class="small-2 columns postfix">
+              <a onClick="questionSubmit()" class="button postfix" id=<%="#{q.id}-#{current_user.id}"%> >Answer</a>
+            </div>
+        </div>
+      </div>
+    <div class="new-answer" style="display:none" id= <%="response-#{q.id}"%> ></div>
+  <% end %>
+
+<% end %>
