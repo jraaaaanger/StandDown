@@ -1,18 +1,8 @@
 <div class="user-wrapper">
   <% if current_user %>
-    <div class="user-stats">
-
-      <h4 class="user-name"><%= "Hello, #{current_user.fullname}." %></h4>
-      <p><%= "Current Location: #{current_user.team.location}" %></p>
-      <p><%= link_to "All Teams in #{current_user.organization.name}", organization_teams_path(current_user.organization) %></p>
-    </div>
-
-     <% if current_user.question_time? && !current_user.all_answered_today? %>
-      <%= render 'question' %>
-    <% else %>
-      <%= current_user.no_standup_message %>
-    <% end %>
-
+    <%= render 'loginhome' %>
+  <% else %>
+    <%= render 'logouthome' %>
   <% end %>
 
 </div>

@@ -22,6 +22,18 @@ $font-color: #343d51;
   }
 }
 
+.intro-header {
+  color: $font-color;
+  font-family: "Rubik";
+  margin: 10 0;
+}
+
+.intro-body {
+  margin-left: 20px;
+  color: $font-color;
+  font-family: "Questrial";
+}
+
 h4 {
   color: $font-color;
   font-family: "Questrial";
