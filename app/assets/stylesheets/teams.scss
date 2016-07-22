@@ -12,8 +12,8 @@ $font-color: #343d51;
 }
 
 .team-answer {
-  font-style: italic;
   color: $font-color;
+  font-style: italic;
 }
 
 .team-wrapper {
@@ -21,12 +21,9 @@ $font-color: #343d51;
 }
 
 .user-response {
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 .team-selectors {
-  float:left;
-}
-.clearBoth {
-  clear: both;
+  float: left;
 }
