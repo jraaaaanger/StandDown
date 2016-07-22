@@ -9,4 +9,7 @@ class Organization < ActiveRecord::Base
   validates :start, presence: true
   validates_format_of :start, with: /([01]?[0-9]|2[0-3])\:[0-5][0-9]/
   validates :description, length: { maximum: 200 }
+
+  def start_time
+  end
 end
