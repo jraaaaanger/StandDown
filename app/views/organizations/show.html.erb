@@ -1,3 +1,12 @@
-<h1><%= @organization.name %></h1>
+<div class="org-wrapper">
 
+<h1 class="org-name"><%= @organization.name %></h1>
 <%= link_to "New Organization", new_organization_path %>
+
+<div class="org-teams">
+  <% @teams.each do |t| %>
+    <%= link_to "#{t.name} | #{t.location} | #{t.local_time.strftime("%H:%M")}", team_path(t) %><br />
+  <% end %>
+</div>
+
+</div>
