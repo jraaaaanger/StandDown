@@ -17,6 +17,9 @@ Rails.application.routes.draw do
         resources :answers, only: [:index, :show]
       end
     end
+    resources :teams do
+      resources :answers
+    end
     resources :questions do
       resources :answers
     end

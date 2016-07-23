@@ -248,7 +248,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   foundation-rails
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-rails
   launchy
   pg (~> 0.15)

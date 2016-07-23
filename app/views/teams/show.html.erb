@@ -1,6 +1,7 @@
 <div class="team-wrapper">
 
 <h1 class="team-name"><%= @team.name %></h1>
+<div id='team-id' style="display:none"><%= @team.id %></div>
 <% if current_user.team != @team %>
   <h3><%= @team.time_statement(current_user) %></h3>
 <% else %>
