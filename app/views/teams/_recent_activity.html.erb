@@ -1,14 +1,17 @@
 <h4 class="team-section">Recent Activity</h4>
+<div id="recent-activity-appendable">
 
-<% @last_answers.each do |a| %>
-<div class="user-response">
-  <div class="left-section">
-    <%= link_to a.user.fullname, "mailto:#{a.user.email}" %>
-    <%= a.submitter_time + " there | " + a.viewer_time(current_user.local_zone) +" here" %>
+  <% @last_answers.each do |a| %>
+  <div class="user-response">
+    <div class="left-section">
+      <%= link_to a.user.fullname, "mailto:#{a.user.email}" %>
+      <%= a.submitter_time + " there | " + a.viewer_time(current_user.local_zone) +" here" %>
+    </div>
+    <div class="right-section">
+      <span class="team-question"><%= a.question.body %></span>
+      <span class="team-answer"><%= a.body %></span>
+    </div>
   </div>
-  <div class="right-section">
-    <span class="team-question"><%= a.question.body %></span>
-    <span class="team-answer"><%= a.body %></span>
-  </div>
+  <% end %>
+  
 </div>
-<% end %>
