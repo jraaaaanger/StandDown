@@ -36,6 +36,6 @@ class Answer < ActiveRecord::Base
   end
 
   def date_local(timezone)
-    updated_at.in_time_zone(timezone).strftime('%C')
+    updated_at.in_time_zone(timezone).strftime('%d')
   end
 end

@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def today_date
-    local_time.strftime("%C")
+    local_time.strftime("%d")
   end
 
   def today_month
@@ -73,6 +73,7 @@ class User < ActiveRecord::Base
     organization.questions.each do |q|
       unless answered_today?(q.id)
         return false
+        break
       end
     end
     true
