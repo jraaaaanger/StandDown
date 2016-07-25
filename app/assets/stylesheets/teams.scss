@@ -27,9 +27,9 @@ $font-color: #343d51;
 }
 
 .recent-activity-appendable {
-  overflow-y: scroll;
-  height: 300px;
   border-top: 2px solid $font-color;
+  height: 300px;
+  overflow-y: scroll;
 };
 
 .team-wrapper {
