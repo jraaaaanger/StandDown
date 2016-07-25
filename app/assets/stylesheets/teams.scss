@@ -7,6 +7,12 @@ $font-color: #343d51;
   font-family: "Questrial";
 }
 
+.team-users {
+  overflow-y: scroll;
+  height: 300px;
+  border-top: 2px solid $font-color;
+}
+
 .team-question {
   color: $font-color;
 }
