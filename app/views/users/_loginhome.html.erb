@@ -1,5 +1,6 @@
 <div class="user-stats">
 
+  <div id="user-time" class="user-clock"></div>
   <h4 class="user-name"><%= "Hello, #{current_user.fullname}." %></h4>
   <p><%= "Current Location: #{current_user.team.location}" %></p>
   <p><%= link_to "All Teams in #{current_user.organization.name}", organization_teams_path(current_user.organization) %></p>
@@ -9,4 +10,8 @@
   <%= render 'question' %>
 <% else %>
   <%= current_user.no_standup_message %>
+<% end %>
+
+<%= javascript_tag do %>
+  userTime();
 <% end %>

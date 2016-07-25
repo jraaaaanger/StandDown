@@ -1,3 +1,5 @@
 <h1><%= @organization.name %></h1>
 
-<%= link_to "New Organization", new_organization_path %>
+<%= link_to "New Organization", new_organization_path %><br />
+
+<%= link_to "All Teams in #{@organization.name}", organization_teams_path(@organization) %>

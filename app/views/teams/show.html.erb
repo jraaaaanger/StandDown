@@ -1,6 +1,13 @@
 <div class="team-wrapper">
+  <h1 class="team-name"><%= @team.name %></h1>
 
-<h1 class="team-name"><%= @team.name %></h1>
+  <div class="team-clocks" id="team-clocks">
+    <% if current_user.team != @team %>
+      <div class="team-clock"><span class="clock" id="team-time"></span> <%= @team.city %> Time</div>
+    <% end %>
+    <div class="team-user-clock"><span class="clock" id="user-time"></span> <%= current_user.team.city %> Time</div>
+  </div>
+
 <div id="team-zone" style="display:none"><%= @team.timezone %></div>
 <div id='team-id' style="display:none"><%= @team.id %></div>
 <div id='org-id' style="display:none"><%= @team.organization_id %></div>
@@ -9,13 +16,6 @@
     <h3><%= @team.time_statement(current_user) %></h3>
   <% else %>
     <h4><%= "Your current team | " %><%= link_to "Change", edit_user_registration_path(current_user) %></h4>
-  <% end %>
-</div>
-
-<div id="team-clocks">
-  <div class="user-clock"><span id="user-time"> Your Time</span></div>
-  <% if current_user.team != @team %>
-    <div class="team-clock"><span id="team-time"><%= @team.city %> Time</span></div>
   <% end %>
 </div>
 
