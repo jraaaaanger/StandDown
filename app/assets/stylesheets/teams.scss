@@ -7,6 +7,16 @@ $font-color: #343d51;
   font-family: "Questrial";
 }
 
+.new-team {
+  width: 250px;
+}
+
+.team-users {
+  border-top: 2px solid $font-color;
+  height: 300px;
+  overflow-y: scroll;
+}
+
 .team-question {
   color: $font-color;
 }
@@ -15,6 +25,12 @@ $font-color: #343d51;
   color: $font-color;
   font-style: italic;
 }
+
+.recent-activity-appendable {
+  border-top: 2px solid $font-color;
+  height: 300px;
+  overflow-y: scroll;
+};
 
 .team-wrapper {
   margin: 10px 30px;

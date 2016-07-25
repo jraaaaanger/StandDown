@@ -16,14 +16,15 @@ class Api::AnswersController < ApiController
   end
 
   def show
-  end
-
-  def index
     @user = User.find(params[:user_id])
     answers = @user.answers
     most_recent_answer = answers.last
 
     render json: most_recent_answer
+  end
+
+  def index
+    @answers = Team.find(params[:team_id]).answers
   end
 
   protected

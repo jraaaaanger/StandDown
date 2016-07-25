@@ -4,9 +4,10 @@ feature 'user sees stats after logging in' do
   context 'while signed-in' do
     let!(:organization) { create(:organization) }
     let!(:team) { create(:team) }
+    let!(:user) { create(:user, team: team) }
+    let!(:answer) { create(:answer, user: user) }
 
     before :each do
-      user = create(:user)
       login_as user
       visit root_path
     end

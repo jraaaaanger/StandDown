@@ -4,10 +4,12 @@ feature 'user sees ' do
   context 'signed-in user' do
     let!(:team) { FactoryGirl.create(:team) }
     let!(:user) { FactoryGirl.create(:user, team: team) }
+    let!(:answer) { FactoryGirl.create(:answer, user: user) }
     let!(:new_team) { FactoryGirl.create(:team, name: 'Ilvermorny', city: 'New York', state: 'NY',
                                          organization: team.organization, timezone: 'America/New_York') }
     let!(:new_user) { FactoryGirl.create(:user, first_name: 'Newt', last_name: 'Scamander',
                                          team: new_team) }
+    let!(:new_answer) { FactoryGirl.create(:answer, user: new_user) }
 
     scenario 'user goes to all teams in organization and sees details' do
       login_as user
