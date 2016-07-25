@@ -113,6 +113,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    moment_timezone-rails (0.5.0)
     momentjs-rails (2.11.1)
       railties (>= 3.1)
     multi_json (1.12.1)
@@ -253,6 +254,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   launchy
+  moment_timezone-rails
   momentjs-rails
   pg (~> 0.15)
   pry-rails
