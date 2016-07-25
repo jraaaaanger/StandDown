@@ -1,19 +1,23 @@
 function userTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    $('user-time')[0].innerHTML =
-    h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
+    var now = moment();
+    var h = now.hours();
+    var m = checkTime(now.minutes());
+    var s = checkTime(now.seconds());
+    $('#user-time')[0].innerHTML = h + ":" + m + ":" + s;
+    setTimeout(userTime, 500);
 }
 
 function teamTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    $('team-time')[0].innerHTML =
-    h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
+    $timezone = $('#team-zone')[0].innerHTML;
+    var now = moment.tz($timezone);
+    var h = now.hours();
+    var m = checkTime(now.minutes());
+    var s = checkTime(now.seconds());
+    $('#team-time')[0].innerHTML = h + ":" + m + ":" + s;
+    setTimeout(teamTime, 500);
+}
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
 }
