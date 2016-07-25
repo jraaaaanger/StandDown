@@ -15,7 +15,7 @@
   <% if current_user.team != @team %>
     <h3><%= @team.time_statement(current_user) %></h3>
   <% else %>
-    <h4><%= "Your current team | " %><%= link_to "Change", edit_user_registration_path(current_user) %></h4>
+    <h4><%= "Your current team | " %><%= link_to "Change", edit_user_registration_path(current_user), onclick: "getTeams()" %></h4>
   <% end %>
 </div>
 
