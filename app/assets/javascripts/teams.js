@@ -12,10 +12,7 @@ function showUsers() {
 
 function showRecentAnswer(newInfo) {
   $recentDiv = $('#recent-activity-appendable');
-  $finalIndex = $recentDiv[0].children.length - 1;
-  $lastAdded = $recentDiv[0].children[$finalIndex];
 
-  $toHide = $recentDiv.find('.user-response')[4];
   $responderTime = newInfo.time;
   $userLink = '<a href="mailto:' + newInfo.user.email + '">' + newInfo.user.name + '</a>';
   $userDiv = '<div class="left-section">' + $userLink + " | " + $responderTime + " there</div>";
@@ -24,9 +21,9 @@ function showRecentAnswer(newInfo) {
   $answerBody = '<span class="team-answer">'+ newInfo.body.answer +'</span>'
   $answerDiv = '<div class="right-section">'+ $questionBody + $answerBody +'</div>';
 
-  $fullDiv = '<div class="user-response">' + $userDiv + $answerDiv + '</div>';
+  $fullDiv = '<div class="user-response" style="display:none">' + $userDiv + $answerDiv + '</div>';
   $recentDiv.prepend($fullDiv);
-  $lastAdded.hide;
+  $('#recent-activity-appendable div:hidden').show(300);
 }
 
 function liveFeed() {
