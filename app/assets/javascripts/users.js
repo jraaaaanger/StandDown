@@ -22,4 +22,5 @@ function changeTeam() {
   $newTeamID = $('.new-team').val();
   $userID = $('#team-id').innerHTML;
   $path = "/api/users/" + $userID;
+
 }
