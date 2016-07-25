@@ -9,13 +9,12 @@ $font-color: #343d51;
 
 .new-team {
   width: 250px;
-  align: left;
 }
 
 .team-users {
-  overflow-y: scroll;
-  height: 300px;
   border-top: 2px solid $font-color;
+  height: 300px;
+  overflow-y: scroll;
 }
 
 .team-question {
