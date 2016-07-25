@@ -2,11 +2,14 @@
 
 <h1 class="team-name"><%= @team.name %></h1>
 <div id='team-id' style="display:none"><%= @team.id %></div>
-<% if current_user.team != @team %>
-  <h3><%= @team.time_statement(current_user) %></h3>
-<% else %>
-  <h4><%= "Your current team | " %><%= link_to "Change", edit_user_registration_path(current_user) %></h4>
-<% end %>
+<div id='org-id' style="display:none"><%= @team.organization_id %></div>
+<div id="team-title">
+  <% if current_user.team != @team %>
+    <h3><%= @team.time_statement(current_user) %></h3>
+  <% else %>
+    <h4><%= "Your current team | " %><%= link_to "Change", edit_user_registration_path(current_user) %></h4>
+  <% end %>
+</div>
 
 <div class="team-selectors">
   <a href='#' onclick="showRA()" id="recent-activity-select">Recent Activity</a>
