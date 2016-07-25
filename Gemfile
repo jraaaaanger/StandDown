@@ -14,6 +14,7 @@ gem 'coffee-script'
 gem 'foundation-rails'
 gem 'time_difference'
 gem 'activesupport'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'capybara'
