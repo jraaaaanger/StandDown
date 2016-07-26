@@ -30,8 +30,23 @@ class Team < ActiveRecord::Base
     time_zone.today
   end
 
+  def date_readable
+    local_time.strftime("%A, %B %d, %Y")
+  end
+
   def utc_difference
     time_zone.utc_offset
+  end
+
+  def time_diff(user)
+    time = user_difference(user) / 3600
+    if time > 0
+      "#{time} hours behind"
+    elsif time == 0
+      "Same time"
+    else
+      "#{- time} hours ahead"
+    end
   end
 
   def user_difference(user)

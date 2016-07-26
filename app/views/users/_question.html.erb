@@ -1,5 +1,5 @@
 <div class="standup">
-<h4 class="subtitle">Standup</h4>
+<h4 class="subtitle"> <%= current_user.team.date_readable %> </h4>
 <% current_user.team.questions.each do |q| %>
 
   <% if current_user.answered_today?(q.id) %>
