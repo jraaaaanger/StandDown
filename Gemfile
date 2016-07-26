@@ -16,6 +16,7 @@ gem 'time_difference'
 gem 'activesupport'
 gem 'momentjs-rails'
 gem 'moment_timezone-rails'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'capybara'

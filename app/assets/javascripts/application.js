@@ -16,8 +16,8 @@
 //= require turbolinks
 //= require_tree .
 //= require moment
-
 // moment-timezone all timezone data
 //= require moment-timezone-with-data
+//= require materialize-sprockets
 
 $(function(){ $(document).foundation(); });
