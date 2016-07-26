@@ -1,6 +1,5 @@
 json.answers @answers do |a|
   json.id a.id
-  binding.pry
   json.time a.submitter_time
   json.body do
     json.question a.question.body

@@ -16,6 +16,7 @@ $bar-color: #5b527f;
 }
 
 .user-stats {
+  width: 50%;
   .user-name {
     font-family: "Questrial";
     margin-bottom: 0;
@@ -65,5 +66,12 @@ h4 {
   font-family: 'Rubik';
 }
 
-.answer-form {
+.live-feed {
+  float: right;
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.org-activity-appendable {
+  border-top: 2px solid $font-color;
 }
