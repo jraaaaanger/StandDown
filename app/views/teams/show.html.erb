@@ -5,7 +5,6 @@
     <% if current_user.team != @team %>
       <div class="team-clock"><span class="clock" id="team-time"></span> <%= @team.city %> Time</div>
     <% end %>
-    <div class="team-user-clock"><span class="clock" id="user-time"></span> <%= current_user.team.city %> Time</div>
   </div>
 
 <div id="team-zone" style="display:none"><%= @team.timezone %></div>
