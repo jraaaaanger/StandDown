@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require moment
-
+//= require Chart
 // moment-timezone all timezone data
 //= require moment-timezone-with-data
 
