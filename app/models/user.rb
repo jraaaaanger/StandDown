@@ -73,7 +73,6 @@ class User < ActiveRecord::Base
     organization.questions.each do |q|
       unless answered_today?(q.id)
         return false
-        break
       end
     end
     true

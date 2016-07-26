@@ -55,21 +55,22 @@ h4 {
 }
 
 .standup {
-  width: 50%;
   padding: 5px;
+  width: 50%;
 }
 
 .user-clock {
   float: right;
+  font-family: "Rubik";
   font-size: 30px;
-  margin: 0 75px 5px 0;
-  font-family: 'Rubik';
+  margin-right: 75px;
+  margin-bottom: 5px;
 }
 
 .live-feed {
   float: right;
-  overflow-y: scroll;
   height: 400px;
+  overflow-y: scroll;
 }
 
 .org-activity-appendable {

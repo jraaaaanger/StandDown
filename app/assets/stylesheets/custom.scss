@@ -90,16 +90,16 @@ a {
 .nav-time {
   color: $white;
   float: right;
-  font-size: 32px;
   font-family: "Rubik", "Questrial";
+  font-size: 32px;
 }
 
 .nav-clock {
-  float: right;
   display: inline-block;
+  float: right;
   line-height: 1;
-  margin-top: 5px;
   margin-right: 5px;
+  margin-top: 5px;
 }
 
 .timezone {
@@ -110,6 +110,6 @@ a {
 }
 
 .clearfix {
-  overflow: auto;
   clear: both;
+  overflow: auto;
 }
