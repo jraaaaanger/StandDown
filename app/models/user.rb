@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def today_date
-    local_time.strftime("%C")
+    local_time.strftime("%d")
   end
 
   def today_month

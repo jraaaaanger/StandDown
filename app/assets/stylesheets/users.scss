@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $font-color: #343d51;
+$bar-color: #5b527f;
 
 .user-wrapper {
   margin: auto;
@@ -15,6 +16,7 @@ $font-color: #343d51;
 }
 
 .user-stats {
+  width: 50%;
   .user-name {
     font-family: "Questrial";
     margin-bottom: 0;
@@ -50,4 +52,27 @@ h4 {
     font-size: 18px;
     margin-left: 30px;
   }
+}
+
+.standup {
+  padding: 5px;
+  width: 50%;
+}
+
+.user-clock {
+  float: right;
+  font-family: "Rubik";
+  font-size: 30px;
+  margin-bottom: 5px;
+  margin-right: 75px;
+}
+
+.live-feed {
+  float: right;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.org-activity-appendable {
+  border-top: 2px solid $font-color;
 }

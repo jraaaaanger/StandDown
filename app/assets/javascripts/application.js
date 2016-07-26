@@ -15,5 +15,9 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require moment
+
+// moment-timezone all timezone data
+//= require moment-timezone-with-data
 
 $(function(){ $(document).foundation(); });

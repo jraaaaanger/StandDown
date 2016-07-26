@@ -1,9 +1,5 @@
-<%= javascript_tag do %>
-  setTimeout(liveFeed, 1000);
-<% end %>
-
 <h4 class="team-section">Recent Activity</h4>
-<div id="hidden-id" style="display:none"><%= @last_answers.first.id %></div>
+<div id="hidden-id" style="display:none"><% if !@last_answers.first.nil? %><%= @last_answers.first.id %><% end %></div>
 <div class="recent-activity-appendable" id="recent-activity-appendable">
 
   <% @last_answers.each do |a| %>
@@ -20,3 +16,6 @@
   <% end %>
 
 </div>
+<%= javascript_tag do %>
+  liveFeed();
+<% end %>
