@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       end
     end
 
+    get 'organizations/:organization_id/answers' => 'organizations#index'
+
     resources :organizations do
       resources :teams
     end

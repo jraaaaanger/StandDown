@@ -86,3 +86,31 @@ a {
   border-radius: 2px;
   margin-top: 16px;
 }
+
+.nav-time {
+  color: $white;
+  float: right;
+  font-size: 32px;
+  font-family: "Rubik", "Questrial";
+}
+
+.nav-clock {
+  float: right;
+  display: inline-block;
+  line-height: 1;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.timezone {
+  color: $white;
+  float: right;
+  font-family: "Questrial";
+  margin: 5px;
+}
+
+.clearfix {
+  overflow: auto;
+  clear: both;
+  margin: auto;
+}

@@ -2,9 +2,8 @@ function userTime() {
     var now = moment();
     var h = now.hours();
     var m = checkTime(now.minutes());
-    var s = checkTime(now.seconds());
-    $('#user-time')[0].innerHTML = h + ":" + m + ":" + s;
-    setTimeout(userTime, 500);
+    $('#user-time')[0].innerHTML = h + ":" + m;
+    setTimeout(userTime, 5000);
 }
 
 function teamTime() {
