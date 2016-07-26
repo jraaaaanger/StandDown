@@ -18,11 +18,10 @@ function liveOrgFeed() {
   var orgID = $('#org-id').text();
   var path = '/api/organizations/' + orgID + '/answers.json';
   var $oldAnswerID = document.getElementById('hidden-id').innerHTML;
-
   var response = $.get(path, function(data) {
     $lastAnswer = data.answers[data.answers.length - 1];
     $lastID = $lastAnswer.id.toString();
-
+    
     if ($lastID === $oldAnswerID) {
       console.log('no answer added')
       setTimeout(liveOrgFeed, 1000);

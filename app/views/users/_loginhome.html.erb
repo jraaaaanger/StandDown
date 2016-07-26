@@ -33,11 +33,7 @@
 <div id="team-zone" style="display:none"><%= current_user.team.timezone %></div>
 <div id='team-id' style="display:none"><%= current_user.team.id %></div>
 
-<div id="hidden-id" style="display:none">
-  <% if !@last_answers.first.nil? %>
-    <%= @last_answers.first.id %>
-  <% end %>
-</div>
+<div id="hidden-id" style="display:none"><% if !@last_answers.first.nil? %><%= @last_answers.first.id %><% end %></div>
 </div>
 
 <%= javascript_tag do %>
