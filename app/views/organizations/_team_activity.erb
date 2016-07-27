@@ -2,10 +2,13 @@
 
 <% @teams.each do |t| %>
 <div class="columns medium-6">
+  <div class=<%= "hidden-id-#{t.id}"%> style="display:none" >
+    <% if !t.answers.last.nil? %>
+      <%= t.answers.last.id %>
+    <% end %>
+  </div>
   <h4 class="org-section"><%= "#{t.name} | #{t.time_readable}" %></h4>
   <div class="org-answers">
-  <div id="hidden-id" style="display:none"></div>
-
     <% t.answers.last(5).each do |a| %>
       <div class="user-response">
         <div class="left-section">
@@ -20,7 +23,7 @@
     <% end %>
   </div>
   </div>
-
+  <script>liveFeed(<%= t.id %>);</script>
 <% end %>
 </div>
 
