@@ -1,7 +1,6 @@
 <div class="user-stats columns small-8">
   <h4 class="user-name"><%= "Hello, #{current_user.fullname}." %></h4>
   <p><%= "Current Location: #{current_user.team.location}" %></p>
-  <p><%= link_to "All Teams in #{current_user.organization.name}", organization_teams_path(current_user.organization) %></p>
 </div>
 
 <div class="live-feed columns small-6">
