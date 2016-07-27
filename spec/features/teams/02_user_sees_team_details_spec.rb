@@ -16,7 +16,7 @@ feature 'user sees team details' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      within(".team-wrapper") do
+      within('.team-wrapper') do
         click_link 'Ravenclaw'
       end
 
@@ -39,7 +39,7 @@ feature 'user sees team details' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      within(".team-wrapper") do
+      within('.team-wrapper') do
         click_link 'Ravenclaw'
       end
 
@@ -61,7 +61,7 @@ feature 'user sees team details' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      within(".team-wrapper") do
+      within('.team-wrapper') do
         click_link 'Ravenclaw'
       end
       click_link 'Users'
