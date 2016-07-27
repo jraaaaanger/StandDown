@@ -1,3 +1,11 @@
-<% @teams.each do |t| %>
-  <li><%= link_to "#{t.name} | #{t.location}", t %></li>
-<% end %>
+<div class="team-wrapper">
+
+  <h1 class="org-name"><%= @organization.name %> Teams</h1>
+  <% @teams.each do |t| %>
+    <div class="team-ref small-8">
+      <%= link_to t.name, t %><br />
+      <%= t.location %> | <%= t.time_diff(current_user) %>
+    </div>
+  <% end %>
+
+</div>

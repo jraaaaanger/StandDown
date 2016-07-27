@@ -1,5 +1,6 @@
  <div class="team-wrapper">
   <h1 class="team-name"><%= @team.name %></h1>
+  <h3 class="team-info"><%= @team.location %> | <%=link_to @team.organization.name, @team.organization %></h3>
 
   <div class="team-clocks" id="team-clocks">
     <% if current_user.team != @team %>

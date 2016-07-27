@@ -2,3 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $font-color: #343d51;
+$bar-color: #5b527f;
+
+.org-name {
+  color: $font-color;
+  font-family: "Questrial";
+}
+
+.team-ref {
+  border-bottom: 1px solid $bar-color;
+}
