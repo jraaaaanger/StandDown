@@ -43,7 +43,7 @@ feature 'user sees team details' do
         click_link 'Ravenclaw'
       end
 
-      expect(page).to have_content('Ravenclaw is 5 hours ahead of you.')
+      expect(page).to have_content('Ravenclaw is 4 hours ahead of you.')
     end
 
     scenario 'user sees option to view users of a team', js: true do
