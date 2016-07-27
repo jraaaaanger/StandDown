@@ -34,6 +34,10 @@ class Team < ActiveRecord::Base
     local_time.strftime("%A, %B %d, %Y")
   end
 
+  def time_readable
+    local_time.strftime("%k:%m")
+  end
+
   def utc_difference
     time_zone.now.formatted_offset(false).chomp('00').to_i
   end

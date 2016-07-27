@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     @teams = @organization.teams
+    @last_answers = @organization.answers.last(10)
   end
 
   def new

@@ -9,6 +9,23 @@ $bar-color: #5b527f;
   font-family: "Questrial";
 }
 
+.team-activity {
+  align-items: left;
+}
+
 .team-ref {
   border-bottom: 1px solid $bar-color;
+}
+
+.org-section {
+  font-size: 20px;
+}
+
+.org-answers {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.org-wrapper {
+  margin: 20px;
 }
