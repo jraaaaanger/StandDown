@@ -41,13 +41,13 @@ class Team < ActiveRecord::Base
   def time_diff(user)
     time = user_difference(user)
     if time == 1
-      "1 hour behind"
+      '1 hour behind'
     elsif time == -1
-      "1 hour ahead"
+      '1 hour ahead'
     elsif time > 0
       "#{time} hours behind"
     elsif time == 0
-      "Same time"
+      'Same time'
     else
       "#{- time} hours ahead"
     end
