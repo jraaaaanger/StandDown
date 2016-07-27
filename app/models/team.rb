@@ -35,7 +35,7 @@ class Team < ActiveRecord::Base
   end
 
   def time_readable
-    local_time.strftime("%k:%m")
+    local_time.strftime("%k:%M")
   end
 
   def utc_difference
