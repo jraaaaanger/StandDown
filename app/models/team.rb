@@ -35,11 +35,11 @@ class Team < ActiveRecord::Base
   end
 
   def utc_difference
-    time_zone.utc_offset
+    time_zone.now.formatted_offset(false).chomp('00').to_i
   end
 
   def time_diff(user)
-    time = user_difference(user) / 3600
+    time = user_difference(user)
     if time > 0
       "#{time} hours behind"
     elsif time == 0
@@ -66,7 +66,7 @@ class Team < ActiveRecord::Base
   end
 
   def time_statement(user)
-    time = user_difference(user) / 3600
+    time = user_difference(user)
     if time > 0
       return "#{name} is #{time} hours behind you."
     else
