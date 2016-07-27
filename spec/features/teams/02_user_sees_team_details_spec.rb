@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user sees ' do
+feature 'user sees team details' do
   context 'signed-in user' do
     let!(:team) { FactoryGirl.create(:team) }
     let!(:user) { FactoryGirl.create(:user, team: team) }
@@ -16,7 +16,9 @@ feature 'user sees ' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      click_link 'Ravenclaw | Hogsmeade, Great Britain'
+      within(".team-wrapper") do
+        click_link 'Ravenclaw'
+      end
 
       expect(page).to have_content('Ravenclaw')
     end
@@ -37,7 +39,9 @@ feature 'user sees ' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      click_link 'Ravenclaw | Hogsmeade, Great Britain'
+      within(".team-wrapper") do
+        click_link 'Ravenclaw'
+      end
 
       expect(page).to have_content('Ravenclaw is 5 hours ahead of you.')
     end
@@ -47,7 +51,7 @@ feature 'user sees ' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      click_link 'Ravenclaw | Hogsmeade, Great Britain'
+      click_link 'Ravenclaw'
 
       expect(page).to have_content('Users')
     end
@@ -57,7 +61,9 @@ feature 'user sees ' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      click_link 'Ravenclaw | Hogsmeade, Great Britain'
+      within(".team-wrapper") do
+        click_link 'Ravenclaw'
+      end
       click_link 'Users'
 
       expect(page).to have_content('Rubeus Hagrid')
@@ -68,7 +74,7 @@ feature 'user sees ' do
       visit root_path
 
       click_link 'All Teams in Hogwarts'
-      click_link 'Ilvermorny | New York, NY'
+      click_link 'Ilvermorny'
       click_link 'Users'
 
       expect(page).to_not have_content('Newt Scamander')

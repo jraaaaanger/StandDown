@@ -28,9 +28,9 @@ feature 'user sees home page' do
 
     scenario 'visits home and sees a standup if it\'s after the start time' do
       @time_now = Time.new(2016, 10, 31, 10, 0, 0).utc
-      allow(Time).to receive(:now).and_return(@time_now)
+      allow(team.time_zone).to receive(:now).and_return(@time_now)
 
-      expect(page).to have_content('Standup')
+      expect(page).to have_content(Time.now.strftime("%A, %B %d, %Y"))
       expect(page).to have_content(question.body)
     end
 
