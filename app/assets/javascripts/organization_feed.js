@@ -1,26 +1,44 @@
 function liveTeamFeed(id) {
-  var path = '/api/teams/' + id + '/answers.json';
-  var $oldAnswerID = document.getElementById('hidden-id-'+ String(id)).innerHTML;
+  $id = id;
+  closure();
 
-  var response = $.get(path, function(data) {
+  function getAnswerIDs() {
+    $oldAnswerID = document.getElementById('hidden-team-answer-id-'+ String($id)).innerHTML;
+  };
+
+  function getLastAnswerIDs(data) {
     $lastAnswer = data.answers[data.answers.length - 1];
-    $lastID = $lastAnswer.id.toString();
-
-    if ($lastID === $oldAnswerID) {
-      setTimeout(liveFeed, 10000);
-    }
-    else {
-      var identifier = 'hidden-id-' + String(id);
-      document.getElementById(identifier).innerHTML = $lastID;
-      showOrgAnswer($lastAnswer);
-      setTimeout(liveTeamFeed, 10000);
-      console.log('answer added')
+    if ($lastAnswer) {
+      $lastID = $lastAnswer.id.toString();
+    } else {
+      $lastID = '0';
     };
-  }, "json")
+  };
+
+  function closure() {
+    var response = $.get('/api/teams/' + $id + '/answers.json', function(data) {
+      getAnswerIDs();
+      getLastAnswerIDs(data);
+
+      if ($lastID === $oldAnswerID || $lastID === '0') {
+        setTimeout(closure, 2000);
+        console.log('no answer added to team');
+      }
+      else {
+        var identifier = 'hidden-team-answer-id-' + String(id);
+        document.getElementById(identifier).innerHTML = $lastID;
+        console.log('answer added to team');
+        showOrgTeamAnswer($lastAnswer, $id);
+        setTimeout(closure, 2000);
+      };
+    }, "json")
+  };
 }
 
-function showOrgAnswer(newInfo) {
-  $recentDiv = $('#org-answers');
+function showOrgTeamAnswer(newInfo, id) {
+  $groupID = '#org-team-' + String(id);
+  $groupHidden = $groupID + ' div:hidden';
+  $recentDiv = $($groupID);
 
   $responderTime = newInfo.time;
   $userLink = '<a href="mailto:' + newInfo.user.email + '">' + newInfo.user.name + '</a>';
@@ -32,5 +50,5 @@ function showOrgAnswer(newInfo) {
 
   $fullDiv = '<div class="user-response" style="display:none">' + $userDiv + $answerDiv + '</div>';
   $recentDiv.prepend($fullDiv);
-  $('#org-answers div:hidden').show(300);
+  $($groupID + 'div:hidden').show(300);
 }

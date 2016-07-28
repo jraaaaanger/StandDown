@@ -1,14 +1,16 @@
 <div class="row">
 
 <% @teams.each do |t| %>
+<%if !t.answers.last.nil?%>
+  <% tid = t.answers.reverse.last.id%>
+<% else %>
+  <% tid = '0' %>
+<% end %>
 <div class="columns medium-6">
-  <div class=<%= "hidden-id-#{t.id}"%> style="display:none" >
-    <% if !t.answers.last.nil? %>
-      <%= t.answers.last.id %>
-    <% end %>
-  </div>
+  <div id=<%= "hidden-id-#{t.id}"%> style="display:none" > <%= tid %> </div>
   <h4 class="org-section"><%= "#{t.name} | #{t.time_readable}" %></h4>
-  <div class="org-answers">
+  <div style="display:none" id=<%="hidden-team-answer-id-#{t.id}"%> ><%= tid %></div>
+  <div class="org-answers" id=<%="org-team-#{t.id}" %> >
     <% t.answers.last(5).reverse.each do |a| %>
       <div class="user-response">
         <div class="left-section">
@@ -23,10 +25,6 @@
     <% end %>
   </div>
   </div>
-  <script>liveTeamFeed(<%= t.id %>);</script>
+  <script>setTimeout(<%="liveTeamFeed(" + t.id.to_s + ")" %>, 500);</script>
 <% end %>
 </div>
-
-<%= javascript_tag do %>
-  liveFeed();
-<% end %>

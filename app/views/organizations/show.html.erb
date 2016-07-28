@@ -11,6 +11,9 @@
   <%= render "team_activity" %>
 </div>
 
+<div style="display:none" id="org-id"><%= @organization.id %></div>
+<div id="hidden-id" style="display:none"><%= @last_answers.last.id %></div>
+
 <div id="all-teams" style="display:none">
   <div class="org-activity-appendable" id="org-activity-appendable">
     <% @last_answers.each do |a| %>
@@ -32,3 +35,7 @@
 
 <%= link_to "All Teams in #{@organization.name}", organization_teams_path(@organization) %>
 </div>
+
+<%= javascript_tag do %>
+  liveOrgFeed();
+<% end %>

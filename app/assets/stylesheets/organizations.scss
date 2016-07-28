@@ -23,6 +23,8 @@ $bar-color: #5b527f;
 
 .org-section {
   font-size: 20px;
+  color: $bar-color;
+  border-bottom: 1px solid $bar-color;
 }
 
 .org-answers {
