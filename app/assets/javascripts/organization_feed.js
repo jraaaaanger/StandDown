@@ -1,6 +1,6 @@
 function liveTeamFeed(id) {
-  $id = id;
-  closure();
+  var $id = id;
+  closure($id);
 
   function getAnswerIDs() {
     $oldAnswerID = document.getElementById('hidden-team-answer-id-'+ String($id)).innerHTML;
@@ -15,25 +15,34 @@ function liveTeamFeed(id) {
     };
   };
 
-  function closure() {
-    var response = $.get('/api/teams/' + $id + '/answers.json', function(data) {
+  function getPath(pid) {
+    $path = '/api/teams/' + pid + '/answers.json';
+  };
+
+  function closure(pid) {
+    getPath(pid);
+    var response = $.get($path, function(data) {
       getAnswerIDs();
       getLastAnswerIDs(data);
 
       if ($lastID === $oldAnswerID || $lastID === '0') {
-        setTimeout(closure, 2000);
+        setTimeout(function() {
+          closure(pid);
+        }, 2000);
         console.log('no answer added to team');
       }
       else {
-        var identifier = 'hidden-team-answer-id-' + String(id);
+        var identifier = 'hidden-team-answer-id-' + String(pid);
         document.getElementById(identifier).innerHTML = $lastID;
         console.log('answer added to team');
-        showOrgTeamAnswer($lastAnswer, $id);
-        setTimeout(closure, 2000);
+        showOrgTeamAnswer($lastAnswer, pid);
+        setTimeout(function() {
+          closure(pid);
+        }, 2000);
       };
     }, "json")
   };
-}
+};
 
 function showOrgTeamAnswer(newInfo, id) {
   $groupID = '#org-team-' + String(id);
@@ -50,5 +59,11 @@ function showOrgTeamAnswer(newInfo, id) {
 
   $fullDiv = '<div class="user-response" style="display:none">' + $userDiv + $answerDiv + '</div>';
   $recentDiv.prepend($fullDiv);
-  $($groupID + 'div:hidden').show(300);
-}
+  $($groupHidden).show(300);
+};
+
+function allCalls(list) {
+  for (i = 0; i < list.length; i++) {
+    liveTeamFeed(list[i])
+  }
+};

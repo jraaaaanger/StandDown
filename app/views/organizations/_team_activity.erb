@@ -2,12 +2,11 @@
 
 <% @teams.each do |t| %>
 <%if !t.answers.last.nil?%>
-  <% tid = t.answers.reverse.last.id%>
+  <% tid = t.answers.last.id%>
 <% else %>
   <% tid = '0' %>
 <% end %>
 <div class="columns medium-6">
-  <div id=<%= "hidden-id-#{t.id}"%> style="display:none" > <%= tid %> </div>
   <h4 class="org-section"><%= "#{t.name} | #{t.time_readable}" %></h4>
   <div style="display:none" id=<%="hidden-team-answer-id-#{t.id}"%> ><%= tid %></div>
   <div class="org-answers" id=<%="org-team-#{t.id}" %> >
@@ -25,6 +24,5 @@
     <% end %>
   </div>
   </div>
-  <script>setTimeout(<%="liveTeamFeed(" + t.id.to_s + ")" %>, 500);</script>
 <% end %>
 </div>

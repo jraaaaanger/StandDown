@@ -8,6 +8,10 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @teams = @organization.teams
     @last_answers = @organization.answers.last(10)
+    @idList = []
+    @teams.each do |t|
+      @idList << t.id
+    end
   end
 
   def new
