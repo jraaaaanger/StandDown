@@ -21,16 +21,26 @@ function liveOrgFeed() {
   var response = $.get(path, function(data) {
     $lastAnswer = data.answers[data.answers.length - 1];
     $lastID = $lastAnswer.id.toString();
-    
+
     if ($lastID === $oldAnswerID) {
-      console.log('no answer added')
       setTimeout(liveOrgFeed, 1000);
     }
     else {
       document.getElementById('hidden-id').innerHTML = $lastID;
       showRecentOrgAnswer($lastAnswer)
       setTimeout(liveOrgFeed, 1000);
-      console.log('answer added')
     };
   }, "json")
+}
+
+function toSpecific() {
+  event.preventDefault();
+  $('#all-teams').hide();
+  $('#specific-teams').show()
+}
+
+function toAll() {
+  event.preventDefault();
+  $('#all-teams').show();
+  $('#specific-teams').hide()
 }

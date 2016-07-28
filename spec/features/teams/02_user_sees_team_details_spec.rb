@@ -15,6 +15,7 @@ feature 'user sees team details' do
       login_as user
       visit root_path
 
+      click_link 'Hogwarts'
       click_link 'All Teams in Hogwarts'
       within('.team-wrapper') do
         click_link 'Ravenclaw'
@@ -26,6 +27,7 @@ feature 'user sees team details' do
     scenario 'user can multiple teams' do
       login_as new_user
       visit root_path
+      click_link 'Hogwarts'
       click_link 'All Teams in Hogwarts'
 
       expect(page).to have_content('Ilvermorny')
@@ -38,6 +40,7 @@ feature 'user sees team details' do
       login_as new_user
       visit root_path
 
+      click_link 'Hogwarts'
       click_link 'All Teams in Hogwarts'
       within('.team-wrapper') do
         click_link 'Ravenclaw'
@@ -50,6 +53,7 @@ feature 'user sees team details' do
       login_as new_user
       visit root_path
 
+      click_link 'Hogwarts'
       click_link 'All Teams in Hogwarts'
       click_link 'Ravenclaw'
 
@@ -60,6 +64,7 @@ feature 'user sees team details' do
       login_as new_user
       visit root_path
 
+      click_link 'Hogwarts'
       click_link 'All Teams in Hogwarts'
       within('.team-wrapper') do
         click_link 'Ravenclaw'
@@ -73,6 +78,7 @@ feature 'user sees team details' do
       login_as new_user
       visit root_path
 
+      click_link 'Hogwarts'
       click_link 'All Teams in Hogwarts'
       click_link 'Ilvermorny'
       click_link 'Users'

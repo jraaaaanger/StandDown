@@ -1,5 +1,42 @@
-<h1><%= @organization.name %></h1>
+<div class="org-wrapper">
+
+<h1 class="org-name"><%= @organization.name %></h1>
+
+<div class="switch-links">
+  <a href="#" onclick="toAll()">All Teams</a> |
+  <a href="#" onclick="toSpecific()">Answers by Team</a>
+</div>
+
+<div id="specific-teams" class="team-activity row">
+  <%= render "team_activity" %>
+</div>
+
+<div style="display:none" id="org-id"><%= @organization.id %></div>
+<div id="hidden-id" style="display:none"><%= @last_answers.last.id if !@last_answers.last.nil? %></div>
+
+<div id="all-teams" style="display:none">
+  <div class="org-activity-appendable" id="org-activity-appendable">
+    <% @last_answers.each do |a| %>
+    <div class="user-response">
+      <div class="left-section">
+        <%= link_to a.user.fullname, "mailto:#{a.user.email}" %>
+        <%= a.submitter_time + " there | " + a.viewer_time(current_user.local_zone) +" here" %>
+      </div>
+      <div class="right-section">
+        <span class="team-question"><%= a.question.body %></span>
+        <span class="team-answer"><%= a.body %></span>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "New Organization", new_organization_path %><br />
 
 <%= link_to "All Teams in #{@organization.name}", organization_teams_path(@organization) %>
+</div>
+
+<%= javascript_tag do %>
+  liveOrgFeed();
+  allCalls(<%=@idList%>);
+<% end %>

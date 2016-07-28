@@ -1,0 +1,28 @@
+<div class="row">
+
+<% @teams.each do |t| %>
+<%if !t.answers.last.nil?%>
+  <% tid = t.answers.last.id%>
+<% else %>
+  <% tid = '0' %>
+<% end %>
+<div class="columns medium-6">
+  <h4 class="org-section"><%= "#{t.name} | #{t.time_readable}" %></h4>
+  <div style="display:none" id=<%="hidden-team-answer-id-#{t.id}"%> ><%= tid %></div>
+  <div class="org-answers" id=<%="org-team-#{t.id}" %> >
+    <% t.answers.last(5).reverse.each do |a| %>
+      <div class="user-response">
+        <div class="left-section">
+          <%= link_to a.user.fullname, "mailto:#{a.user.email}" %>
+          <%= a.submitter_time + " there | " + a.viewer_time(current_user.local_zone) +" here" %>
+        </div>
+        <div class="right-section">
+          <span class="team-question"><%= a.question.body %></span>
+          <span class="team-answer"><%= a.body %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+<% end %>
+</div>

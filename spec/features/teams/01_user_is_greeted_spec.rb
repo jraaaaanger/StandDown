@@ -28,6 +28,7 @@ feature 'user sees stats after logging in' do
     end
 
     scenario 'sees link with all organization teams' do
+      click_link 'Hogwarts'
       click_link 'All Teams in Hogwarts'
 
       expect(page).to have_content(team.name)
