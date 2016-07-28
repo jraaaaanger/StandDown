@@ -9,7 +9,7 @@
   </div>
   <h4 class="org-section"><%= "#{t.name} | #{t.time_readable}" %></h4>
   <div class="org-answers">
-    <% t.answers.last(5).each do |a| %>
+    <% t.answers.last(5).reverse.each do |a| %>
       <div class="user-response">
         <div class="left-section">
           <%= link_to a.user.fullname, "mailto:#{a.user.email}" %>
@@ -23,7 +23,7 @@
     <% end %>
   </div>
   </div>
-  <script>liveFeed(<%= t.id %>);</script>
+  <script>liveTeamFeed(<%= t.id %>);</script>
 <% end %>
 </div>
 
