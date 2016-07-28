@@ -1,5 +1,6 @@
 function userTime() {
-    var now = moment();
+    var zone = $('#user-time-zone')[0].innerHTML;
+    var now = moment.tz(zone);
     var h = now.hours();
     var m = checkTime(now.minutes());
     $('#user-time')[0].innerHTML = h + ":" + m;
