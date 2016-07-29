@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
 
   def no_standup_message
     if all_answered_today?
-      "Your next standup is tomorrow at " + organization.start.strftime("%H:%M %p") + "."
+      'Your next standup is tomorrow at ' + organization.start.strftime("%H:%M") + '.'
     else
-      "Your next standup is today at " + organization.start.strftime("%H:%M %p") + "."
+      'Your next standup is today at ' + organization.start.strftime("%H:%M") + '.'
     end
   end
 
