@@ -35,4 +35,13 @@ require 'rails_helper'
       expect(page).to have_content(new_team.name)
     end
 
+    scenario 'user sees answers from all teams on org page', js: true do
+      click_link organization.name
+      click_link 'All Teams'
+
+      expect(page).to have_link 'Answers by Team'
+      expect(page).to have_content answer.body
+      expect(page).to have_content user.fullname 
+    end
+
 end
