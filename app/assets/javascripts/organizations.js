@@ -21,7 +21,6 @@ function liveOrgFeed() {
   var response = $.get(path, function(data) {
     $lastAnswer = data.answers[data.answers.length - 1];
     $lastID = $lastAnswer.id.toString();
-    debugger;
 
     if ($lastID === $oldAnswerID) {
       setTimeout(liveOrgFeed, 1000);
