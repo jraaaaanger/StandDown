@@ -5,17 +5,17 @@ describe 'Answers API' do
     it 'successfully gets a response from the API controller' do
       team = FactoryGirl.create :team
       user = FactoryGirl.create :user, team: team
-      answer = FactoryGirl.create :answer, user: user
+      FactoryGirl.create :answer, user: user
 
       get "/api/teams/#{team.id}/answers.json", {}, { 'Accept' => 'application/json' }
 
       expect(response.status).to eq 200
     end
 
-    it 'returns JSON answers in specific order' do
+    it 'returns JSON answers in configuration' do
       team = FactoryGirl.create :team
       user = FactoryGirl.create :user, team: team
-      answer = FactoryGirl.create :answer, user: user
+      FactoryGirl.create :answer, user: user
 
       get "/api/teams/#{team.id}/answers.json", {}, { 'Accept' => 'application/json' }
 
