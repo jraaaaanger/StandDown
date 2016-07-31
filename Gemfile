@@ -6,7 +6,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
@@ -26,6 +25,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'capybara-webkit', '1.11.1'
   gem 'dotenv-rails'
+  gem 'vcr'
 end
 
 group :test do
