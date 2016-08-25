@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require_tree .
+//= require react
+//= require react_ujs
+//= require_tree ./components
 //= require moment
 
 // moment-timezone all timezone data
