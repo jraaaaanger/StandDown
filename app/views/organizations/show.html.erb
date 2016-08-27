@@ -35,8 +35,3 @@
 
 <%= link_to "All Teams in #{@organization.name}", organization_teams_path(@organization) %>
 </div>
-
-<%= javascript_tag do %>
-  liveOrgFeed();
-  allCalls(<%=@idList%>);
-<% end %>

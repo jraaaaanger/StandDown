@@ -35,14 +35,3 @@
 <%= link_to "New Team", new_team_path %>
 
 </div>
-
-<% if current_user.team == @team %>
-  <%= javascript_tag do %>
-    userTime();
-  <% end %>
-<% else %>
-  <%= javascript_tag do %>
-    userTime();
-    teamTime()
-  <% end %>
-<% end %>
