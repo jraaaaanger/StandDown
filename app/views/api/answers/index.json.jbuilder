@@ -1,6 +1,7 @@
 json.answers @answers do |a|
   json.id a.id
-  json.time a.submitter_time
+  json.submitter_time a.submitter_time
+  json.utc a.updated_at
   json.body do
     json.question a.question.body
     json.answer a.body

@@ -24,7 +24,7 @@ class Api::AnswersController < ApiController
   end
 
   def index
-    @answers = Team.find(params[:team_id]).answers
+    @answers = Team.find(params[:team_id]).answers.limit(10)
   end
 
   protected
