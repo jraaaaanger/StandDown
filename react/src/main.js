@@ -5,7 +5,7 @@ import OrgFeed from './components/OrgFeed';
 
 $(function() {
   ReactDOM.render(
-    <OrgFeed />,
-    document.getElementById('app')
+    <OrgFeed orgID='4' />,
+    document.getElementById('org-activity-appendable')
   );
 });
