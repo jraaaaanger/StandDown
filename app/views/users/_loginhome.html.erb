@@ -34,7 +34,3 @@
 
 <div id="hidden-id" style="display:none"><% if !@last_answers.first.nil? %><%= @last_answers.first.id %><% end %></div>
 </div>
-
-<%= javascript_tag do %>
-  liveOrgFeed();
-<% end %>
