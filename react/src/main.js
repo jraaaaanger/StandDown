@@ -6,6 +6,6 @@ import OrgFeed from './components/OrgFeed';
 $(function() {
   ReactDOM.render(
     <OrgFeed />,
-    document.getElementById(' ')
+    document.getElementById('app')
   );
 });
