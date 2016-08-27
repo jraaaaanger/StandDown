@@ -1,10 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import orgFeed from './components/orgFeed';
 
 $(function() {
   ReactDOM.render(
-    <h1>Test</h1>,
+    <orgFeed />,
     document.getElementById('app')
   );
 });
