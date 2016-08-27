@@ -11,6 +11,7 @@
   </head>
   <body>
     <%= render "layouts/navbar" %>
+    <div id="app" ></div>
     <div class="container">
      <% flash.each do |key, value| %>
       <div id="flash" class="alert alert-<%= key %>"><%= value %></div>
